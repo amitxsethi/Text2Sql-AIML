@@ -1,0 +1,67 @@
+======================================================================
+GEN-SQL EVALUATION: Normalized EM + EX
+======================================================================
+
+📂 Results: output/CodeLlama-7B-Instruct-spider-gtrr_column-S30C200-SS4CS6-L3-q_skltn-sql_skltn-sql_post_process-fs8-dev.json
+
+Valid results: 147
+Null entries: 53
+Total: 200
+✓ Loaded 1034 ground truth examples from benchmark/spider/dev.json
+
+Evaluating 147 examples...
+
+📊 EXACT MATCH (EM) - Normalized
+======================================================================
+Matched: 56/147
+Accuracy: 38.1%
+
+📋 First 5 examples:
+----------------------------------------------------------------------
+
+1. How many singers do we have?...
+   Gold: select count(*)from singer
+   Pred: select count(*)from singer
+   Match: ✓
+
+2. What is the total number of singers?...
+   Gold: select count(*)from singer
+   Pred: select count(*)from singer
+   Match: ✓
+
+3. Show name, country, age for all singers ordered by age from ...
+   Gold: select name, country, age from singer order by age desc
+   Pred: select name, country, age from singer order by age desc
+   Match: ✓
+
+4. What are the names, countries, and ages for every singer in ...
+   Gold: select name, country, age from singer order by age desc
+   Pred: select name, country, age from singer order by age desc
+   Match: ✓
+
+5. What is the average, minimum, and maximum age for all French...
+   Gold: select avg(age), min(age), max(age)from singer where country = 'france...
+   Pred: select avg(age), min(age), max(age)from singer where country = 'france...
+   Match: ✓
+
+📊 EXECUTION ACCURACY (EX)
+======================================================================
+Correct: 99/147
+Accuracy: 67.3%
+Execution errors: 48
+
+======================================================================
+FINAL RESULTS
+======================================================================
+Examples evaluated:      147
+Null/Failed:             53
+
+Exact Match (EM):        38.1% (normalized)
+Execution Accuracy (EX): 67.3%
+Execution errors:        48
+
+✓ EX better than EM: +29.3%
+  (Semantically correct despite syntax differences)
+======================================================================
+
+💾 Errors saved to: output/CodeLlama-7B-Instruct-spider-gtrr_column-S30C200-SS4CS6-L3-q_skltn-sql_skltn-sql_post_process-fs8-dev_errors.json
