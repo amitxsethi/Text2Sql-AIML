@@ -1,0 +1,386 @@
+[
+  {
+    "example": 6,
+    "question": "What are the names and release years for all the songs of the youngest singer?",
+    "db": "concert_singer",
+    "reason": "Results mismatch",
+    "pred_rows": 2,
+    "gold_rows": 1
+  },
+  {
+    "example": 13,
+    "question": "What is the maximum capacity and the average of all stadiums ?",
+    "db": "concert_singer",
+    "reason": "Results mismatch",
+    "pred_rows": 1,
+    "gold_rows": 1
+  },
+  {
+    "example": 15,
+    "question": "What is the name and capacity for the stadium with highest average attendance?",
+    "db": "concert_singer",
+    "reason": "Results mismatch",
+    "pred_rows": 1,
+    "gold_rows": 1
+  },
+  {
+    "example": 18,
+    "question": "Show the stadium name and the number of concerts in each stadium.",
+    "db": "concert_singer",
+    "reason": "Results mismatch",
+    "pred_rows": 5,
+    "gold_rows": 5
+  },
+  {
+    "example": 19,
+    "question": "For each stadium, how many concerts play there?",
+    "db": "concert_singer",
+    "reason": "Results mismatch",
+    "pred_rows": 5,
+    "gold_rows": 5
+  },
+  {
+    "example": 23,
+    "question": "What is the year that had the most concerts?",
+    "db": "concert_singer",
+    "reason": "Results mismatch",
+    "pred_rows": 1,
+    "gold_rows": 1
+  },
+  {
+    "example": 26,
+    "question": "What are the names of all stadiums that did not have a concert in 2014?",
+    "db": "concert_singer",
+    "reason": "Results mismatch",
+    "pred_rows": 6,
+    "gold_rows": 6
+  },
+  {
+    "example": 27,
+    "question": "What are the names , themes , and number of singers for every concert ?",
+    "db": "concert_singer",
+    "reason": "Results mismatch",
+    "pred_rows": 6,
+    "gold_rows": 6
+  },
+  {
+    "example": 28,
+    "question": "What are the names of the singers and number of concerts for each person?",
+    "db": "concert_singer",
+    "reason": "Results mismatch",
+    "pred_rows": 5,
+    "gold_rows": 5
+  },
+  {
+    "example": 43,
+    "question": "Find the number of dog pets that are raised by female students (with sex F).",
+    "db": "pets_1",
+    "reason": "Results mismatch",
+    "pred_rows": 1,
+    "gold_rows": 1
+  },
+  {
+    "example": 47,
+    "question": "What are the first names of every student who has a cat or dog as a pet?",
+    "db": "pets_1",
+    "reason": "Results mismatch",
+    "pred_rows": 3,
+    "gold_rows": 2
+  },
+  {
+    "example": 52,
+    "question": "What is the first name of every student who has a dog but does not have a cat?",
+    "db": "pets_1",
+    "reason": "Results mismatch",
+    "pred_rows": 2,
+    "gold_rows": 2
+  },
+  {
+    "example": 56,
+    "question": "Find the average and maximum age for each type of pet.",
+    "db": "pets_1",
+    "reason": "Results mismatch",
+    "pred_rows": 2,
+    "gold_rows": 2
+  },
+  {
+    "example": 57,
+    "question": "What is the average and maximum age for each pet type?",
+    "db": "pets_1",
+    "reason": "Results mismatch",
+    "pred_rows": 2,
+    "gold_rows": 2
+  },
+  {
+    "example": 59,
+    "question": "What are the different first names and ages of the students who do have pets?",
+    "db": "pets_1",
+    "reason": "Results mismatch",
+    "pred_rows": 3,
+    "gold_rows": 2
+  },
+  {
+    "example": 61,
+    "question": "Find the number of pets for each student who has any pet and student id.",
+    "db": "pets_1",
+    "reason": "Results mismatch",
+    "pred_rows": 2,
+    "gold_rows": 2
+  },
+  {
+    "example": 62,
+    "question": "For students who have pets , how many pets does each student have ? list their ids instead of names .",
+    "db": "pets_1",
+    "reason": "Results mismatch",
+    "pred_rows": 2,
+    "gold_rows": 2
+  },
+  {
+    "example": 70,
+    "question": "What is the number of continents?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 5,
+    "gold_rows": 1
+  },
+  {
+    "example": 73,
+    "question": "How many countries are listed?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 15,
+    "gold_rows": 1
+  },
+  {
+    "example": 74,
+    "question": "How many countries exist?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 5,
+    "gold_rows": 1
+  },
+  {
+    "example": 77,
+    "question": "How many car makers are there in each continents? List the continent name and the count.",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 5,
+    "gold_rows": 3
+  },
+  {
+    "example": 78,
+    "question": "How many car models are produced by each maker ? Only list the count and the maker full name .",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 22,
+    "gold_rows": 22
+  },
+  {
+    "example": 79,
+    "question": "What is the number of car models that are produced by each maker and what is the id and full name of each maker?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 22,
+    "gold_rows": 22
+  },
+  {
+    "example": 80,
+    "question": "How many car makers are there in france?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 1,
+    "gold_rows": 1
+  },
+  {
+    "example": 81,
+    "question": "What is the number of makers of care in France?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 4,
+    "gold_rows": 1
+  },
+  {
+    "example": 88,
+    "question": "What is the number of the cars with horsepower more than 150?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 281,
+    "gold_rows": 1
+  },
+  {
+    "example": 90,
+    "question": "What is the average weight of cars each year?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 13,
+    "gold_rows": 13
+  },
+  {
+    "example": 92,
+    "question": "Which countries in europe have at least 3 car manufacturers?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 4,
+    "gold_rows": 2
+  },
+  {
+    "example": 93,
+    "question": "What are the names of all European countries with at least 3 manufacturers?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 0,
+    "gold_rows": 2
+  },
+  {
+    "example": 99,
+    "question": "What is the maximum accelerate for all the different cylinders?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 1,
+    "gold_rows": 5
+  },
+  {
+    "example": 100,
+    "question": "Which model has the most version(make) of cars?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 1,
+    "gold_rows": 1
+  },
+  {
+    "example": 107,
+    "question": "Which makers designed more than 3 car models? List full name and the id.",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 2,
+    "gold_rows": 2
+  },
+  {
+    "example": 108,
+    "question": "Which distinctive models are produced by maker with the full name General Motors or weighing more than 3500?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 14,
+    "gold_rows": 13
+  },
+  {
+    "example": 109,
+    "question": "In which years cars were produced weighing no less than 3000 and no more than 4000 ?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 107,
+    "gold_rows": 13
+  },
+  {
+    "example": 114,
+    "question": "For a volvo model, how many cylinders does the version with least accelerate have?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 0,
+    "gold_rows": 1
+  },
+  {
+    "example": 115,
+    "question": "How many cars have a larger accelerate than the car with the largest horsepower?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 1,
+    "gold_rows": 1
+  },
+  {
+    "example": 116,
+    "question": "What is the number of cars with a greater accelerate than the one with the most horsepower?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 1,
+    "gold_rows": 1
+  },
+  {
+    "example": 117,
+    "question": "How many countries has more than 2 car makers ?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 0,
+    "gold_rows": 4
+  },
+  {
+    "example": 118,
+    "question": "What is the number of countries with more than 2 car makers ?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 1,
+    "gold_rows": 4
+  },
+  {
+    "example": 123,
+    "question": "What are the names of the countries with no car makers?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 7,
+    "gold_rows": 7
+  },
+  {
+    "example": 124,
+    "question": "Which are the car makers which produce at least 2 models and more than 3 car makers ? List the id and the maker .",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 2,
+    "gold_rows": 6
+  },
+  {
+    "example": 125,
+    "question": "What are the ids and makers of all car makers that produce at least 2 models and make more than 3 cars?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 2,
+    "gold_rows": 6
+  },
+  {
+    "example": 126,
+    "question": "What are the id and names of the countries which have more than 3 car makers or produce the 'fiat' model?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 3,
+    "gold_rows": 4
+  },
+  {
+    "example": 127,
+    "question": "What are the ids and names of all countries that either have more than 3 car makers or produce fiat model ?",
+    "db": "car_1",
+    "reason": "Results mismatch",
+    "pred_rows": 3,
+    "gold_rows": 4
+  },
+  {
+    "example": 131,
+    "question": "Which abbreviation corresponds to Jetblue Airways?",
+    "db": "flight_2",
+    "reason": "Results mismatch",
+    "pred_rows": 0,
+    "gold_rows": 1
+  },
+  {
+    "example": 139,
+    "question": "How many flights do we have?",
+    "db": "flight_2",
+    "reason": "Results mismatch",
+    "pred_rows": 1200,
+    "gold_rows": 1
+  },
+  {
+    "example": 142,
+    "question": "Give the airline with abbreviation 'UAL'.",
+    "db": "flight_2",
+    "reason": "Results mismatch",
+    "pred_rows": 1,
+    "gold_rows": 1
+  },
+  {
+    "example": 144,
+    "question": "Return the number of airlines in the USA.",
+    "db": "flight_2",
+    "reason": "Results mismatch",
+    "pred_rows": 1,
+    "gold_rows": 1
+  }
+]
