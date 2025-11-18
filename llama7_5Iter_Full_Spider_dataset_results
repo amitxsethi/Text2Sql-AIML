@@ -1,0 +1,85 @@
+Full Result with Spider data set with llama7b 
+
+======================================================================
+GEN-SQL EVALUATION: Normalized EM + EX
+(Null/Failed predictions count as incorrect)
+======================================================================
+
+📂 Results: output/CodeLlama-7B-Instruct-spider-gtrr_column-S30C200-SS4CS6-L5-q_skltn-sql_skltn-sql_post_process-fs8-dev.json
+✓ Loaded 1034 ground truth examples from benchmark/spider/dev.json
+
+======================================================================
+EVALUATION SUMMARY
+======================================================================
+Total examples:          1034
+Successful generations:  779
+Failed (null):           255
+
+======================================================================
+📊 EXACT MATCH (EM) - Normalized
+======================================================================
+Correct: 331/1034
+Overall Accuracy: 32.0%
+  (includes 255 failures as incorrect)
+
+Conditional Accuracy: 42.5%
+  (only on 779 successful generations)
+
+======================================================================
+📊 EXECUTION ACCURACY (EX)
+======================================================================
+Correct: 563/1034
+Overall Accuracy: 54.4%
+  (includes 255 failures as incorrect)
+
+Conditional Accuracy: 72.3%
+  (only on 779 successful generations)
+
+Execution errors: 471
+
+======================================================================
+📋 First 5 examples:
+======================================================================
+
+1. How many singers do we have?...
+   Gold: select count(*)from singer
+   Pred: select count(*)from singer
+   EM: ✓, EX: ✓
+
+2. What is the total number of singers?...
+   Gold: select count(*)from singer
+   Pred: select count(*)from singer
+   EM: ✓, EX: ✓
+
+3. Show name, country, age for all singers ordered by age from ...
+   Gold: select name, country, age from singer order by age desc
+   Pred: select name, country, age from singer order by age desc
+   EM: ✓, EX: ✓
+
+4. What are the names, countries, and ages for every singer in ...
+   Gold: select name, country, age from singer order by age desc
+   Pred: select name, country, age from singer order by age desc
+   EM: ✓, EX: ✓
+
+5. What is the average, minimum, and maximum age of all singers...
+   Gold: select avg(age), min(age), max(age)from singer where country = 'france...
+   Pred: select avg(age), min(age), max(age)from singer where country = 'france...
+   EM: ✓, EX: ✓
+
+======================================================================
+FINAL RESULTS
+======================================================================
+Dataset: Spider dev (1034 examples)
+Successful generations: 779 (75.3%)
+Failed generations: 255 (24.7%)
+
+Overall Exact Match (EM):        32.0%
+Overall Execution Accuracy (EX): 54.4%
+
+Conditional EM (on success):     42.5%
+Conditional EX (on success):     72.3%
+
+✓ EX better than EM: +22.4%
+======================================================================
+
+💾 Errors saved to: output/CodeLlama-7B-Instruct-spider-gtrr_column-S30C200-SS4CS6-L5-q_skltn-sql_skltn-sql_post_process-fs8-dev_errors.json
