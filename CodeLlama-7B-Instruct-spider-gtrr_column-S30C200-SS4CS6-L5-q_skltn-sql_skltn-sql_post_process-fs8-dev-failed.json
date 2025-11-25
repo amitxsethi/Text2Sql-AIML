@@ -1,0 +1,3362 @@
+[
+    {
+        "id": 6,
+        "gold_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "gold": "SELECT song_name ,  song_release_year FROM singer ORDER BY age LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 7,
+        "gold_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "gold": "SELECT song_name ,  song_release_year FROM singer ORDER BY age LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "prediction": "SELECT  T1.Name ,  T1.Song_release_year FROM singer AS T1 JOIN singer_in_concert AS T2 ON T1.Singer_ID  =  T2.Singer_ID JOIN concert AS T3 ON T2.concert_ID  =  T3.concert_ID WHERE T1.Age = (SELECT MIN(Age) FROM singer) ORDER BY T1.Song_release_year ASC"
+    },
+    {
+        "id": 13,
+        "gold_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "gold": "SELECT song_name FROM singer WHERE age  >  (SELECT avg(age) FROM singer)",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 15,
+        "gold_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "gold": "SELECT LOCATION ,  name FROM stadium WHERE capacity BETWEEN 5000 AND 10000",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 16,
+        "gold_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "gold": "select max(capacity), average from stadium",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "prediction": "SELECT  max(Capacity) ,  avg(Capacity) FROM stadium"
+    },
+    {
+        "id": 18,
+        "gold_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "gold": "SELECT name ,  capacity FROM stadium ORDER BY average DESC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "prediction": "SELECT  T1.Name,  T1.Capacity FROM stadium AS T1 JOIN concert AS T2 ON T1.Stadium_ID  =  T2.Stadium_ID GROUP BY T1.Stadium_ID ORDER BY AVG(T2.Year) DESC LIMIT 1"
+    },
+    {
+        "id": 19,
+        "gold_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "gold": "SELECT name ,  capacity FROM stadium ORDER BY average DESC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 23,
+        "gold_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "gold": "SELECT T2.name ,  count(*) FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id GROUP BY T1.stadium_id",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "prediction": "SELECT  T1.Stadium_ID ,  count(*) FROM concert AS T1 JOIN singer_in_concert AS T2 ON T1.concert_ID  =  T2.concert_ID GROUP BY T1.Stadium_ID"
+    },
+    {
+        "id": 27,
+        "gold_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "gold": "SELECT YEAR FROM concert GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 29,
+        "gold_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "gold": "SELECT name FROM stadium WHERE stadium_id NOT IN (SELECT stadium_id FROM concert)",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 31,
+        "gold_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "gold": "SELECT name FROM stadium EXCEPT SELECT T2.name FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.year  =  2014",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 33,
+        "gold_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "gold": "SELECT T2.concert_name ,  T2.theme ,  count(*) FROM singer_in_concert AS T1 JOIN concert AS T2 ON T1.concert_id  =  T2.concert_id GROUP BY T2.concert_id",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 35,
+        "gold_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "gold": "SELECT T2.name ,  count(*) FROM singer_in_concert AS T1 JOIN singer AS T2 ON T1.singer_id  =  T2.singer_id GROUP BY T2.singer_id",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 39,
+        "gold_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "gold": "SELECT name ,  country FROM singer WHERE song_name LIKE '%Hey%'",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 40,
+        "gold_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "gold": "SELECT name ,  country FROM singer WHERE song_name LIKE '%Hey%'",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 42,
+        "gold_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "gold": "SELECT T2.name ,  T2.location FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.Year  =  2014 INTERSECT SELECT T2.name ,  T2.location FROM concert AS T1 JOIN stadium AS T2 ON T1.stadium_id  =  T2.stadium_id WHERE T1.Year  =  2015",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/concert_singer/concert_singer.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 53,
+        "gold_db": "benchmark/spider/database/pets_1/pets_1.sqlite",
+        "gold": "SELECT count(*) FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T2.petid  =  T3.petid WHERE T1.sex  =  'F' AND T3.pettype  =  'dog'",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/pets_1/pets_1.sqlite",
+        "prediction": "SELECT  COUNT(*) FROM Pets AS T1 JOIN Student AS T2 ON T1.PetID  =  T2.StuID WHERE T1.PetType  =  'dog' AND T2.Sex  =  'F';"
+    },
+    {
+        "id": 61,
+        "gold_db": "benchmark/spider/database/pets_1/pets_1.sqlite",
+        "gold": "SELECT major ,  age FROM student WHERE stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat')",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/pets_1/pets_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 64,
+        "gold_db": "benchmark/spider/database/pets_1/pets_1.sqlite",
+        "gold": "SELECT stuid FROM student EXCEPT SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat'",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/pets_1/pets_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 66,
+        "gold_db": "benchmark/spider/database/pets_1/pets_1.sqlite",
+        "gold": "SELECT T1.fname ,  T1.age FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'dog' AND T1.stuid NOT IN (SELECT T1.stuid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid JOIN pets AS T3 ON T3.petid  =  T2.petid WHERE T3.pettype  =  'cat')",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/pets_1/pets_1.sqlite",
+        "prediction": "SELECT  fname FROM Student AS T1 JOIN Has_Pet AS T2 ON T1.StuID  =  T2.StuID WHERE T2.PetID IN (SELECT PetID FROM Pets WHERE PetType  =  'dog') AND T2.PetID NOT IN (SELECT PetID FROM Pets WHERE PetType  =  'cat')"
+    },
+    {
+        "id": 68,
+        "gold_db": "benchmark/spider/database/pets_1/pets_1.sqlite",
+        "gold": "SELECT pettype ,  weight FROM pets ORDER BY pet_age LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/pets_1/pets_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 74,
+        "gold_db": "benchmark/spider/database/pets_1/pets_1.sqlite",
+        "gold": "SELECT avg(weight) ,  pettype FROM pets GROUP BY pettype",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/pets_1/pets_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 77,
+        "gold_db": "benchmark/spider/database/pets_1/pets_1.sqlite",
+        "gold": "SELECT T2.petid FROM student AS T1 JOIN has_pet AS T2 ON T1.stuid  =  T2.stuid WHERE T1.Lname  =  'Smith'",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/pets_1/pets_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 88,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT count(*) FROM CONTINENTS;",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT 1 FROM continents;"
+    },
+    {
+        "id": 91,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT count(*) FROM COUNTRIES;",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT 1 FROM countries"
+    },
+    {
+        "id": 92,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT count(*) FROM COUNTRIES;",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT 1 FROM continents"
+    },
+    {
+        "id": 95,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id ORDER BY T2.horsepower ASC LIMIT 1;",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 96,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id ORDER BY T2.horsepower ASC LIMIT 1;",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 97,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.Weight  <  (SELECT avg(Weight) FROM CARS_DATA)",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 98,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.Weight  <  (SELECT avg(Weight) FROM CARS_DATA)",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 99,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT DISTINCT T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker JOIN CAR_NAMES AS T3 ON T2.model  =  T3.model JOIN CARS_DATA AS T4 ON T3.MakeId  =  T4.id WHERE T4.year  =  '1970';",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT  t1.Make TEXT FROM car_names AS t1 JOIN cars_data AS t2 ON t1.MakeId  =  t2.Id WHERE t2.Year  =  1970"
+    },
+    {
+        "id": 100,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT DISTINCT T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker JOIN CAR_NAMES AS T3 ON T2.model  =  T3.model JOIN CARS_DATA AS T4 ON T3.MakeId  =  T4.id WHERE T4.year  =  '1970';",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 101,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T2.Make ,  T1.Year FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T1.Year  =  (SELECT min(YEAR) FROM CARS_DATA);",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 102,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T2.Make ,  T1.Year FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T1.Year  =  (SELECT min(YEAR) FROM CARS_DATA);",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 103,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT DISTINCT T1.model FROM MODEL_LIST AS T1 JOIN CAR_NAMES AS T2 ON T1.model  =  T2.model JOIN CARS_DATA AS T3 ON T2.MakeId  =  T3.id WHERE T3.year  >  1980;",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 104,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT DISTINCT T1.model FROM MODEL_LIST AS T1 JOIN CAR_NAMES AS T2 ON T1.model  =  T2.model JOIN CARS_DATA AS T3 ON T2.MakeId  =  T3.id WHERE T3.year  >  1980;",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 105,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.Continent ,  count(*) FROM CONTINENTS AS T1 JOIN COUNTRIES AS T2 ON T1.ContId  =  T2.continent JOIN car_makers AS T3 ON T2.CountryId  =  T3.Country GROUP BY T1.Continent;",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT  T2.Continent ,  COUNT(*) FROM car_makers AS T1 JOIN continents AS T2 ON T1.Country  =  T2.ContId GROUP BY T1.Country"
+    },
+    {
+        "id": 106,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.Continent ,  count(*) FROM CONTINENTS AS T1 JOIN COUNTRIES AS T2 ON T1.ContId  =  T2.continent JOIN car_makers AS T3 ON T2.CountryId  =  T3.Country GROUP BY T1.Continent;",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 107,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T2.CountryName FROM CAR_MAKERS AS T1 JOIN COUNTRIES AS T2 ON T1.Country  =  T2.CountryId GROUP BY T1.Country ORDER BY Count(*) DESC LIMIT 1;",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 108,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T2.CountryName FROM CAR_MAKERS AS T1 JOIN COUNTRIES AS T2 ON T1.Country  =  T2.CountryId GROUP BY T1.Country ORDER BY Count(*) DESC LIMIT 1;",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 109,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "select count(*) ,  t2.fullname from model_list as t1 join car_makers as t2 on t1.maker  =  t2.id group by t2.id;",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 111,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.Accelerate FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T2.Make  =  'amc hornet sportabout (sw)';",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 112,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.Accelerate FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T2.Make  =  'amc hornet sportabout (sw)';",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 113,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT count(*) FROM CAR_MAKERS AS T1 JOIN COUNTRIES AS T2 ON T1.Country  =  T2.CountryId WHERE T2.CountryName  =  'france';",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT  count(*) FROM car_makers WHERE country  =  \"france\""
+    },
+    {
+        "id": 114,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT count(*) FROM CAR_MAKERS AS T1 JOIN COUNTRIES AS T2 ON T1.Country  =  T2.CountryId WHERE T2.CountryName  =  'france';",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT 1 FROM car_makers WHERE Country = 1;"
+    },
+    {
+        "id": 115,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT count(*) FROM MODEL_LIST AS T1 JOIN CAR_MAKERS AS T2 ON T1.Maker  =  T2.Id JOIN COUNTRIES AS T3 ON T2.Country  =  T3.CountryId WHERE T3.CountryName  =  'usa';",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 116,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT count(*) FROM MODEL_LIST AS T1 JOIN CAR_MAKERS AS T2 ON T1.Maker  =  T2.Id JOIN COUNTRIES AS T3 ON T2.Country  =  T3.CountryId WHERE T3.CountryName  =  'usa';",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 121,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT Maker ,  Model FROM MODEL_LIST;",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 124,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.CountryName ,  T1.CountryId FROM COUNTRIES AS T1 JOIN CAR_MAKERS AS T2 ON T1.CountryId  =  T2.Country GROUP BY T1.CountryId HAVING count(*)  >=  1;",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 125,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT count(*) FROM CARS_DATA WHERE horsepower  >  150;",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT 1 FROM cars_data WHERE Horsepower  >  150"
+    },
+    {
+        "id": 128,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT avg(Weight) ,  YEAR FROM CARS_DATA GROUP BY YEAR;",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 129,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.CountryName FROM COUNTRIES AS T1 JOIN CONTINENTS AS T2 ON T1.Continent  =  T2.ContId JOIN CAR_MAKERS AS T3 ON T1.CountryId  =  T3.Country WHERE T2.Continent  =  'europe' GROUP BY T1.CountryName HAVING count(*)  >=  3;",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT  T2.CountryName FROM car_makers AS T1 JOIN countries AS T2 ON T1.Country  =  T2.CountryId GROUP BY T1.Country HAVING COUNT(*)  >=  3"
+    },
+    {
+        "id": 130,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.CountryName FROM COUNTRIES AS T1 JOIN CONTINENTS AS T2 ON T1.Continent  =  T2.ContId JOIN CAR_MAKERS AS T3 ON T1.CountryId  =  T3.Country WHERE T2.Continent  =  'europe' GROUP BY T1.CountryName HAVING count(*)  >=  3;",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT  CountryName FROM countries WHERE Continent = 1 GROUP BY CountryName HAVING COUNT(*) >= 3"
+    },
+    {
+        "id": 131,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T2.horsepower ,  T1.Make FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.cylinders  =  3 ORDER BY T2.horsepower DESC LIMIT 1;",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 133,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id ORDER BY T2.mpg DESC LIMIT 1;",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 134,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "select t1.model from car_names as t1 join cars_data as t2 on t1.makeid  =  t2.id order by t2.mpg desc limit 1;",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 137,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT avg(T2.edispl) FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T1.Model  =  'volvo';",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 140,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT max(Accelerate) ,  Cylinders FROM CARS_DATA GROUP BY Cylinders;",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT  max(Accelerate) FROM cars_data WHERE Cylinders  =  '8'"
+    },
+    {
+        "id": 141,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT Model FROM CAR_NAMES GROUP BY Model ORDER BY count(*) DESC LIMIT 1;",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT  T1.Model ,  COUNT(*) FROM model_list AS T1 JOIN car_names AS T2 ON T1.Model  =  T2.Model GROUP BY T1.Model ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "id": 147,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT count(*) FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker WHERE T1.FullName  =  'American Motor Company';",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 150,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.FullName ,  T1.Id FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id HAVING count(*)  >  3;",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 151,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT DISTINCT T2.Model FROM CAR_NAMES AS T1 JOIN MODEL_LIST AS T2 ON T1.Model  =  T2.Model JOIN CAR_MAKERS AS T3 ON T2.Maker  =  T3.Id JOIN CARS_DATA AS T4 ON T1.MakeId  =  T4.Id WHERE T3.FullName  =  'General Motors' OR T4.weight  >  3500;",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT  DISTINCT T1.Model FROM model_list AS T1 JOIN car_names AS T2 ON T1.Model  =  T2.Model JOIN cars_data AS T3 ON T2.MakeId  =  T3.Id WHERE T1.Maker  =  1 OR T3.Weight  >  3500"
+    },
+    {
+        "id": 152,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT DISTINCT T2.Model FROM CAR_NAMES AS T1 JOIN MODEL_LIST AS T2 ON T1.Model  =  T2.Model JOIN CAR_MAKERS AS T3 ON T2.Maker  =  T3.Id JOIN CARS_DATA AS T4 ON T1.MakeId  =  T4.Id WHERE T3.FullName  =  'General Motors' OR T4.weight  >  3500;",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 154,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "select distinct year from cars_data where weight between 3000 and 4000;",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT  DISTINCT Year FROM cars_data WHERE Weight  <  4000 INTERSECT SELECT  DISTINCT Year FROM cars_data WHERE Weight  >  3000"
+    },
+    {
+        "id": 158,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.cylinders FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T2.Model  =  'volvo' ORDER BY T1.accelerate ASC LIMIT 1;",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT  T2.Cylinders FROM model_list AS T1 JOIN cars_data AS T2 ON T1.Model  =  T2.Id WHERE T1.Model  =  'volvo' AND T2.Accelerate  =  (SELECT min(Accelerate) FROM cars_data WHERE Model  =  'volvo')"
+    },
+    {
+        "id": 159,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT COUNT(*) FROM CARS_DATA WHERE Accelerate  >  ( SELECT Accelerate FROM CARS_DATA ORDER BY Horsepower DESC LIMIT 1 );",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT  COUNT(*) FROM cars_data WHERE accelerate  >  (SELECT max(horsepower) FROM cars_data);"
+    },
+    {
+        "id": 160,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT COUNT(*) FROM CARS_DATA WHERE Accelerate  >  ( SELECT Accelerate FROM CARS_DATA ORDER BY Horsepower DESC LIMIT 1 );",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT  COUNT(*) FROM cars_data WHERE accelerate > (SELECT MAX(horsepower) FROM cars_data);"
+    },
+    {
+        "id": 162,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "select count(*) from countries as t1 join car_makers as t2 on t1.countryid  =  t2.country group by t1.countryid having count(*)  >  2",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT  count(*) FROM (SELECT  country FROM car_makers GROUP BY country HAVING count(*)  >  2)"
+    },
+    {
+        "id": 165,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.Cylinders  =  4 ORDER BY T2.horsepower DESC LIMIT 1;",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 166,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.Model FROM CAR_NAMES AS T1 JOIN CARS_DATA AS T2 ON T1.MakeId  =  T2.Id WHERE T2.Cylinders  =  4 ORDER BY T2.horsepower DESC LIMIT 1;",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 167,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T2.MakeId ,  T2.Make FROM CARS_DATA AS T1 JOIN CAR_NAMES AS T2 ON T1.Id  =  T2.MakeId WHERE T1.Horsepower  >  (SELECT min(Horsepower) FROM CARS_DATA) AND T1.Cylinders  <=  3;",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 168,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "select t2.makeid ,  t2.make from cars_data as t1 join car_names as t2 on t1.id  =  t2.makeid where t1.horsepower  >  (select min(horsepower) from cars_data) and t1.cylinders  <  4;",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 171,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT DISTINCT T1.model FROM MODEL_LIST AS T1 JOIN CAR_NAMES AS T2 ON T1.Model  =  T2.Model JOIN CARS_DATA AS T3 ON T2.MakeId  =  T3.Id JOIN CAR_MAKERS AS T4 ON T1.Maker  =  T4.Id WHERE T3.weight  <  3500 AND T4.FullName != 'Ford Motor Company';",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 172,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT DISTINCT T1.model FROM MODEL_LIST AS T1 JOIN CAR_NAMES AS T2 ON T1.Model  =  T2.Model JOIN CARS_DATA AS T3 ON T2.MakeId  =  T3.Id JOIN CAR_MAKERS AS T4 ON T1.Maker  =  T4.Id WHERE T3.weight  <  3500 AND T4.FullName != 'Ford Motor Company';",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 173,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT CountryName FROM countries EXCEPT SELECT T1.CountryName FROM countries AS T1 JOIN CAR_MAKERS AS T2 ON T1.countryId  =  T2.Country;",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 175,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "select t1.id ,  t1.maker from car_makers as t1 join model_list as t2 on t1.id  =  t2.maker group by t1.id having count(*)  >=  2 intersect select t1.id ,  t1.maker from car_makers as t1 join model_list as t2 on t1.id  =  t2.maker join car_names as t3 on t2.model  =  t3.model group by t1.id having count(*)  >  3;",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT  T1.Id ,  T1.Maker FROM car_makers AS T1 JOIN model_list AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id HAVING COUNT(*)  >=  2 AND COUNT(*)  >  3"
+    },
+    {
+        "id": 176,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.Id ,  T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id HAVING count(*)  >=  2 INTERSECT SELECT T1.Id ,  T1.Maker FROM CAR_MAKERS AS T1 JOIN MODEL_LIST AS T2 ON T1.Id  =  T2.Maker JOIN CAR_NAMES AS T3 ON T2.model  =  T3.model GROUP BY T1.Id HAVING count(*)  >  3;",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT  T1.Id ,  T1.Maker FROM car_makers AS T1 JOIN model_list AS T2 ON T1.Id  =  T2.Maker GROUP BY T1.Id HAVING count(*)  >  2 AND count(*)  >  3"
+    },
+    {
+        "id": 177,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "SELECT T1.countryId ,  T1.CountryName FROM Countries AS T1 JOIN CAR_MAKERS AS T2 ON T1.CountryId  =  T2.Country GROUP BY T1.countryId HAVING count(*)  >  3 UNION SELECT T1.countryId ,  T1.CountryName FROM Countries AS T1 JOIN CAR_MAKERS AS T2 ON T1.CountryId  =  T2.Country JOIN MODEL_LIST AS T3 ON T2.Id  =  T3.Maker WHERE T3.Model  =  'fiat';",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT  T1.CountryId ,  T1.CountryName FROM countries AS T1 JOIN car_makers AS T2 ON T1.CountryId  =  T2.Country WHERE T2.Country  =  'fiat' GROUP BY T1.CountryId HAVING count(*)  >  3 UNION SELECT T1.CountryId ,  T1.CountryName FROM countries AS T1 JOIN car_makers AS T2 ON T1.CountryId  =  T2.Country GROUP BY T1.CountryId HAVING count(*)  >  3"
+    },
+    {
+        "id": 178,
+        "gold_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "gold": "select t1.countryid ,  t1.countryname from countries as t1 join car_makers as t2 on t1.countryid  =  t2.country group by t1.countryid having count(*)  >  3 union select t1.countryid ,  t1.countryname from countries as t1 join car_makers as t2 on t1.countryid  =  t2.country join model_list as t3 on t2.id  =  t3.maker where t3.model  =  'fiat';",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/car_1/car_1.sqlite",
+        "prediction": "SELECT  T1.CountryId ,  T1.CountryName FROM countries AS T1 JOIN car_makers AS T2 ON T1.CountryId  =  T2.Country JOIN model_list AS T3 ON T2.Id  =  T3.Maker WHERE T3.Model  =  'fiat' GROUP BY T1.CountryId HAVING count(*)  >  3 UNION SELECT T1.CountryId ,  T1.CountryName FROM countries AS T1 JOIN car_makers AS T2 ON T1.CountryId  =  T2.Country GROUP BY T1.CountryId HAVING count(*)  >  3"
+    },
+    {
+        "id": 182,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT Abbreviation FROM AIRLINES WHERE Airline  =  \"JetBlue Airways\"",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT  Abbreviation FROM airlines WHERE Airline = 'Jetblue Airways';"
+    },
+    {
+        "id": 191,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT count(*) FROM FLIGHTS",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT 1 FROM flights"
+    },
+    {
+        "id": 194,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT Airline FROM AIRLINES WHERE Abbreviation  =  \"UAL\"",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT  * FROM airlines WHERE Abbreviation = 'UAL'"
+    },
+    {
+        "id": 202,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT AirportName FROM AIRPORTS WHERE City = \"Aberdeen\"",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT  AirportName FROM airports WHERE AirportCode = 'APG';"
+    },
+    {
+        "id": 221,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT T1.City FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.DestAirport GROUP BY T1.City ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT  City FROM airports GROUP BY City ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "id": 222,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT T1.City FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.DestAirport GROUP BY T1.City ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 225,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT T1.AirportCode FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.DestAirport OR T1.AirportCode  =  T2.SourceAirport GROUP BY T1.AirportCode ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT  AirportCode FROM airports ORDER BY (SELECT COUNT(*) FROM flights WHERE SourceAirport = AirportCode) DESC LIMIT 1;"
+    },
+    {
+        "id": 226,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT T1.AirportCode FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.DestAirport OR T1.AirportCode  =  T2.SourceAirport GROUP BY T1.AirportCode ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT  DestAirport FROM flights GROUP BY DestAirport ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "id": 227,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT T1.AirportCode FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.DestAirport OR T1.AirportCode  =  T2.SourceAirport GROUP BY T1.AirportCode ORDER BY count(*) LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT  AirportCode FROM airports GROUP BY AirportCode ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "id": 228,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT T1.AirportCode FROM AIRPORTS AS T1 JOIN FLIGHTS AS T2 ON T1.AirportCode  =  T2.DestAirport OR T1.AirportCode  =  T2.SourceAirport GROUP BY T1.AirportCode ORDER BY count(*) LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 229,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT  Airline FROM flights GROUP BY Airline ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "id": 230,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT  Airline FROM flights GROUP BY Airline ORDER BY COUNT(*) DESC LIMIT 1;"
+    },
+    {
+        "id": 231,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT T1.Abbreviation ,  T1.Country FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline ORDER BY count(*) LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT  T1.Abbreviation ,  T1.Country FROM airlines AS T1 JOIN flights AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.uid ORDER BY count(*) LIMIT 1"
+    },
+    {
+        "id": 232,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT T1.Abbreviation ,  T1.Country FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline ORDER BY count(*) LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 235,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline WHERE T2.DestAirport  =  \"AHD\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 241,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline HAVING count(*)  >  10",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT  Airline FROM flights GROUP BY Airline HAVING COUNT(*)  >=  10"
+    },
+    {
+        "id": 242,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline HAVING count(*)  >  10",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT  Airline FROM flights GROUP BY Airline HAVING count(*)  >=  10"
+    },
+    {
+        "id": 243,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline HAVING count(*)  <  200",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT  Airline FROM flights GROUP BY Airline HAVING COUNT(*)  <  200"
+    },
+    {
+        "id": 244,
+        "gold_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "gold": "SELECT T1.Airline FROM AIRLINES AS T1 JOIN FLIGHTS AS T2 ON T1.uid  =  T2.Airline GROUP BY T1.Airline HAVING count(*)  <  200",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/flight_2/flight_2.sqlite",
+        "prediction": "SELECT  Airline FROM flights GROUP BY Airline HAVING COUNT(*) < 200"
+    },
+    {
+        "id": 269,
+        "gold_db": "benchmark/spider/database/employee_hire_evaluation/employee_hire_evaluation.sqlite",
+        "gold": "SELECT manager_name ,  district FROM shop ORDER BY number_products DESC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/employee_hire_evaluation/employee_hire_evaluation.sqlite",
+        "prediction": "SELECT  T1.Name ,  T1.District FROM shop AS T1 JOIN hiring AS T2 ON T1.Shop_ID  =  T2.Shop_ID GROUP BY T1.Shop_ID ORDER BY sum(T1.Number_products) DESC LIMIT 1"
+    },
+    {
+        "id": 270,
+        "gold_db": "benchmark/spider/database/employee_hire_evaluation/employee_hire_evaluation.sqlite",
+        "gold": "SELECT manager_name ,  district FROM shop ORDER BY number_products DESC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/employee_hire_evaluation/employee_hire_evaluation.sqlite",
+        "prediction": "SELECT  T1.Name ,  T1.District FROM shop AS T1 JOIN hiring AS T2 ON T1.Shop_ID  =  T2.Shop_ID JOIN employee AS T3 ON T2.Employee_ID  =  T3.Employee_ID GROUP BY T1.Shop_ID ORDER BY T1.Number_products DESC LIMIT 1"
+    },
+    {
+        "id": 275,
+        "gold_db": "benchmark/spider/database/employee_hire_evaluation/employee_hire_evaluation.sqlite",
+        "gold": "SELECT name FROM shop WHERE number_products  >  (SELECT avg(number_products) FROM shop)",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/employee_hire_evaluation/employee_hire_evaluation.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 283,
+        "gold_db": "benchmark/spider/database/employee_hire_evaluation/employee_hire_evaluation.sqlite",
+        "gold": "SELECT t2.name FROM hiring AS t1 JOIN shop AS t2 ON t1.shop_id  =  t2.shop_id GROUP BY t1.shop_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/employee_hire_evaluation/employee_hire_evaluation.sqlite",
+        "prediction": "SELECT  Name FROM shop ORDER BY Number_products DESC LIMIT 1"
+    },
+    {
+        "id": 284,
+        "gold_db": "benchmark/spider/database/employee_hire_evaluation/employee_hire_evaluation.sqlite",
+        "gold": "SELECT t2.name FROM hiring AS t1 JOIN shop AS t2 ON t1.shop_id  =  t2.shop_id GROUP BY t1.shop_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/employee_hire_evaluation/employee_hire_evaluation.sqlite",
+        "prediction": "SELECT  Name FROM shop ORDER BY Number_products DESC LIMIT 1"
+    },
+    {
+        "id": 288,
+        "gold_db": "benchmark/spider/database/employee_hire_evaluation/employee_hire_evaluation.sqlite",
+        "gold": "SELECT count(*) ,  t2.name FROM hiring AS t1 JOIN shop AS t2 ON t1.shop_id  =  t2.shop_id GROUP BY t2.name",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/employee_hire_evaluation/employee_hire_evaluation.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 290,
+        "gold_db": "benchmark/spider/database/employee_hire_evaluation/employee_hire_evaluation.sqlite",
+        "gold": "SELECT sum(bonus) FROM evaluation",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/employee_hire_evaluation/employee_hire_evaluation.sqlite",
+        "prediction": "SELECT  sum(T1.Bonus) FROM evaluation AS T1 JOIN employee AS T2 ON T1.Employee_ID  =  T2.Employee_ID WHERE T2.Name  =  'George Chuter'"
+    },
+    {
+        "id": 301,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT document_name ,  template_id FROM Documents WHERE Document_Description LIKE \"%w%\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 303,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT document_id ,  template_id ,  Document_Description FROM Documents WHERE document_name  =  \"Robbin CV\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 304,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT document_id ,  template_id ,  Document_Description FROM Documents WHERE document_name  =  \"Robbin CV\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 305,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT count(DISTINCT template_id) FROM Documents",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  count(DISTINCT Template_Type_Code) FROM Templates;"
+    },
+    {
+        "id": 306,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT count(DISTINCT template_id) FROM Documents",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  count(DISTINCT Template_Type_Code) FROM Templates"
+    },
+    {
+        "id": 308,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT count(*) FROM Documents AS T1 JOIN Templates AS T2 ON T1.Template_ID  =  T2.Template_ID WHERE T2.Template_Type_Code  =  'PPT'",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  COUNT(DISTINCT Document_ID) FROM Documents WHERE Template_ID IN (SELECT Template_ID FROM Templates WHERE Template_Type_Code = 'PP');"
+    },
+    {
+        "id": 311,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT T1.template_id ,  T2.Template_Type_Code FROM Documents AS T1 JOIN Templates AS T2 ON T1.template_id  =  T2.template_id GROUP BY T1.template_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  T1.Template_ID ,  T1.Template_Type_Code FROM Templates AS T1 JOIN Documents AS T2 ON T1.Template_ID  =  T2.Template_ID GROUP BY T1.Template_ID ,  T1.Template_Type_Code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "id": 312,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT T1.template_id ,  T2.Template_Type_Code FROM Documents AS T1 JOIN Templates AS T2 ON T1.template_id  =  T2.template_id GROUP BY T1.template_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  T1.Template_ID ,  T1.Template_Type_Code FROM Templates AS T1 JOIN Documents AS T2 ON T1.Template_ID  =  T2.Template_ID GROUP BY T1.Template_ID ,  T1.Template_Type_Code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "id": 313,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT template_id FROM Documents GROUP BY template_id HAVING count(*)  >  1",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  Template_ID FROM Templates GROUP BY Template_ID HAVING COUNT(*)  >  1"
+    },
+    {
+        "id": 322,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT DISTINCT template_type_code FROM Templates",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  DISTINCT Template_Type_Code FROM Ref_Template_Types"
+    },
+    {
+        "id": 328,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT version_number ,  template_type_code FROM Templates WHERE version_number  >  5",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 330,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT template_type_code ,  count(*) FROM Templates GROUP BY template_type_code",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  Template_Type_Code ,  COUNT(*) FROM Ref_Template_Types GROUP BY Template_Type_Code"
+    },
+    {
+        "id": 333,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT template_type_code FROM Templates GROUP BY template_type_code HAVING count(*)  <  3",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  Template_Type_Code  FROM  Ref_Template_Types  GROUP  BY  Template_Type_Code  HAVING  COUNT(*)  <  3"
+    },
+    {
+        "id": 334,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT template_type_code FROM Templates GROUP BY template_type_code HAVING count(*)  <  3",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  Template_Type_Code FROM Ref_Template_Types WHERE Template_Type_Code NOT IN (SELECT Template_Type_Code FROM Templates GROUP BY Template_Type_Code HAVING COUNT(*) > 3)"
+    },
+    {
+        "id": 338,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT T1.template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id WHERE T2.document_name  =  \"Data base\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  Template_Type_Code FROM Templates AS t1 JOIN Documents AS t2 ON t1.Template_ID  =  t2.Template_ID JOIN Paragraphs AS t3 ON t2.Document_ID  =  t3.Document_ID WHERE t3.Paragraph_Text  =  \"database\""
+    },
+    {
+        "id": 340,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT T2.document_name FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id WHERE T1.template_type_code  =  \"BK\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 343,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT T1.template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id GROUP BY T1.template_type_code ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 344,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT T1.template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id GROUP BY T1.template_type_code ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  Template_Type_Code FROM Templates GROUP BY Template_Type_Code ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "id": 345,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT template_type_code FROM Templates EXCEPT SELECT template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  Template_Type_Code FROM Ref_Template_Types WHERE Template_Type_Code NOT IN ( SELECT Template_Type_Code FROM Templates )"
+    },
+    {
+        "id": 346,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT template_type_code FROM Templates EXCEPT SELECT template_type_code FROM Templates AS T1 JOIN Documents AS T2 ON T1.template_id  =  T2.template_id",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 353,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT DISTINCT T1.template_type_description FROM Ref_template_types AS T1 JOIN Templates AS T2 ON T1.template_type_code  = T2.template_type_code JOIN Documents AS T3 ON T2.Template_ID  =  T3.template_ID",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  DISTINCT Template_Type_Description FROM Ref_Template_Types JOIN Templates ON Ref_Template_Types.Template_Type_Code = Templates.Template_Type_Code JOIN Documents ON Templates.Template_ID = Documents.Template_ID JOIN Paragraphs ON Documents.Document_ID = Paragraphs.Document_ID"
+    },
+    {
+        "id": 354,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT DISTINCT T1.template_type_description FROM Ref_template_types AS T1 JOIN Templates AS T2 ON T1.template_type_code  = T2.template_type_code JOIN Documents AS T3 ON T2.Template_ID  =  T3.template_ID",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 355,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT T2.template_id FROM Ref_template_types AS T1 JOIN Templates AS T2 ON T1.template_type_code  = T2.template_type_code WHERE T1.template_type_description  =  \"Presentation\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  Template_ID  FROM  Templates  WHERE  Template_Type_Code  =  'PP';"
+    },
+    {
+        "id": 356,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT T2.template_id FROM Ref_template_types AS T1 JOIN Templates AS T2 ON T1.template_type_code  = T2.template_type_code WHERE T1.template_type_description  =  \"Presentation\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  Template_ID FROM Templates WHERE Template_Type_Code  =  \"PP\""
+    },
+    {
+        "id": 361,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "select other_details from paragraphs where paragraph_text like 'korea'",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  *  FROM  Paragraphs  WHERE  Paragraph_Text  =  'Korea '"
+    },
+    {
+        "id": 362,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "select other_details from paragraphs where paragraph_text like 'korea'",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  Paragraph_Text, Other_Details FROM Paragraphs WHERE Paragraph_Text LIKE '%Korea%'"
+    },
+    {
+        "id": 369,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT T1.document_id ,  T2.document_name ,  count(*) FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id  =  T2.document_id GROUP BY T1.document_id",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 370,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT T1.document_id ,  T2.document_name ,  count(*) FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.document_id  =  T2.document_id GROUP BY T1.document_id",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 377,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT document_id FROM Paragraphs GROUP BY document_id HAVING count(*) BETWEEN 1 AND 2",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  T1.Document_ID FROM Paragraphs AS T1 JOIN Documents AS T2 ON T1.Document_ID  =  T2.Document_ID WHERE T1.Paragraph_ID  <  3 AND T2.Template_ID  =  1"
+    },
+    {
+        "id": 379,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT document_id FROM Paragraphs WHERE paragraph_text  =  'Brazil' INTERSECT SELECT document_id FROM Paragraphs WHERE paragraph_text  =  'Ireland'",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  Document_ID FROM Paragraphs WHERE Paragraph_Text = 'Brazil' OR Paragraph_Text = 'Ireland'"
+    },
+    {
+        "id": 380,
+        "gold_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "gold": "SELECT document_id FROM Paragraphs WHERE paragraph_text  =  'Brazil' INTERSECT SELECT document_id FROM Paragraphs WHERE paragraph_text  =  'Ireland'",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/cre_Doc_Template_Mgt/cre_Doc_Template_Mgt.sqlite",
+        "prediction": "SELECT  Document_ID FROM Paragraphs WHERE Paragraph_Text IN ('Brazil', 'Ireland')"
+    },
+    {
+        "id": 387,
+        "gold_db": "benchmark/spider/database/course_teach/course_teach.sqlite",
+        "gold": "select name from teacher where hometown != \"little lever urban district\"",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/course_teach/course_teach.sqlite",
+        "prediction": "SELECT  Name FROM teacher WHERE Hometown != 'Little Lever Urban District'"
+    },
+    {
+        "id": 388,
+        "gold_db": "benchmark/spider/database/course_teach/course_teach.sqlite",
+        "gold": "select name from teacher where hometown != \"little lever urban district\"",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/course_teach/course_teach.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 396,
+        "gold_db": "benchmark/spider/database/course_teach/course_teach.sqlite",
+        "gold": "SELECT Hometown FROM teacher GROUP BY Hometown ORDER BY COUNT(*) DESC LIMIT 1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/course_teach/course_teach.sqlite",
+        "prediction": "SELECT  T1.Hometown, COUNT(T1.Hometown) FROM teacher AS T1 GROUP BY T1.Hometown ORDER BY COUNT(T1.Hometown) DESC;"
+    },
+    {
+        "id": 399,
+        "gold_db": "benchmark/spider/database/course_teach/course_teach.sqlite",
+        "gold": "SELECT T3.Name ,  T2.Course FROM course_arrange AS T1 JOIN course AS T2 ON T1.Course_ID  =  T2.Course_ID JOIN teacher AS T3 ON T1.Teacher_ID  =  T3.Teacher_ID",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/course_teach/course_teach.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 400,
+        "gold_db": "benchmark/spider/database/course_teach/course_teach.sqlite",
+        "gold": "SELECT T3.Name ,  T2.Course FROM course_arrange AS T1 JOIN course AS T2 ON T1.Course_ID  =  T2.Course_ID JOIN teacher AS T3 ON T1.Teacher_ID  =  T3.Teacher_ID",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/course_teach/course_teach.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 401,
+        "gold_db": "benchmark/spider/database/course_teach/course_teach.sqlite",
+        "gold": "SELECT T3.Name ,  T2.Course FROM course_arrange AS T1 JOIN course AS T2 ON T1.Course_ID  =  T2.Course_ID JOIN teacher AS T3 ON T1.Teacher_ID  =  T3.Teacher_ID ORDER BY T3.Name",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/course_teach/course_teach.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 403,
+        "gold_db": "benchmark/spider/database/course_teach/course_teach.sqlite",
+        "gold": "SELECT T3.Name FROM course_arrange AS T1 JOIN course AS T2 ON T1.Course_ID  =  T2.Course_ID JOIN teacher AS T3 ON T1.Teacher_ID  =  T3.Teacher_ID WHERE T2.Course  =  \"Math\"",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/course_teach/course_teach.sqlite",
+        "prediction": "SELECT  t1.Name FROM teacher AS t1 JOIN course_arrange AS t2 ON t1.Teacher_ID  =  t2.Teacher_ID WHERE t2.Course_ID  =  1;"
+    },
+    {
+        "id": 415,
+        "gold_db": "benchmark/spider/database/museum_visit/museum_visit.sqlite",
+        "gold": "SELECT museum_id ,  name FROM museum ORDER BY num_of_staff DESC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/museum_visit/museum_visit.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 420,
+        "gold_db": "benchmark/spider/database/museum_visit/museum_visit.sqlite",
+        "gold": "SELECT t2.visitor_id ,  t1.name ,  t1.Level_of_membership FROM visitor AS t1 JOIN visit AS t2 ON t1.id  =  t2.visitor_id GROUP BY t2.visitor_id ORDER BY sum(t2.Total_spent) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/museum_visit/museum_visit.sqlite",
+        "prediction": "SELECT  T1.ID ,  T1.Name ,  T1.Level_of_membership FROM visitor AS T1 JOIN visit AS T2 ON T1.ID  =  T2.visitor_ID GROUP BY T1.ID ORDER BY sum(T2.Total_spent) DESC LIMIT 1"
+    },
+    {
+        "id": 421,
+        "gold_db": "benchmark/spider/database/museum_visit/museum_visit.sqlite",
+        "gold": "SELECT t2.Museum_ID ,  t1.name FROM museum AS t1 JOIN visit AS t2 ON t1.Museum_ID  =  t2.Museum_ID GROUP BY t2.Museum_ID ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/museum_visit/museum_visit.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 426,
+        "gold_db": "benchmark/spider/database/museum_visit/museum_visit.sqlite",
+        "gold": "SELECT t1.name FROM visitor AS t1 JOIN visit AS t2 ON t1.id  =  t2.visitor_id JOIN museum AS t3 ON t3.Museum_ID  =  t2.Museum_ID WHERE t3.open_year  <  2009 INTERSECT SELECT t1.name FROM visitor AS t1 JOIN visit AS t2 ON t1.id  =  t2.visitor_id JOIN museum AS t3 ON t3.Museum_ID  =  t2.Museum_ID WHERE t3.open_year  >  2011",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/museum_visit/museum_visit.sqlite",
+        "prediction": "SELECT  Name FROM visitor WHERE ID IN (SELECT visitor_ID FROM visit WHERE Museum_ID IN (SELECT Museum_ID FROM museum WHERE Open_Year  <  2009 INTERSECT SELECT Museum_ID FROM museum WHERE Open_Year  >  2011))"
+    },
+    {
+        "id": 438,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT avg(winner_rank) FROM matches",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT  avg(T1.ranking) FROM rankings AS T1 JOIN matches AS T2 ON T1.player_id  =  T2.winner_id"
+    },
+    {
+        "id": 440,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT min(loser_rank) FROM matches",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT  MAX ( loser_rank )  FROM  matches;"
+    },
+    {
+        "id": 446,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT tourney_name FROM matches GROUP BY tourney_name HAVING count(*)  >  10",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 447,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT winner_name FROM matches WHERE YEAR  =  2013 INTERSECT SELECT winner_name FROM matches WHERE YEAR  =  2016",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT  winner_name FROM matches WHERE tourney_id  =  '2013-W-WT-TUR-01A-2013' INTERSECT SELECT winner_name FROM matches WHERE tourney_id  =  '2016-W-WT-TUR-01A-2016'"
+    },
+    {
+        "id": 448,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT winner_name FROM matches WHERE YEAR  =  2013 INTERSECT SELECT winner_name FROM matches WHERE YEAR  =  2016",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT  T1.first_name ,  T1.last_name FROM players AS T1 JOIN matches AS T2 ON T1.player_id  =  T2.winner_id WHERE T2.year  =  2013 INTERSECT SELECT  T1.first_name ,  T1.last_name FROM players AS T1 JOIN matches AS T2 ON T1.player_id  =  T2.winner_id WHERE T2.year  =  2016"
+    },
+    {
+        "id": 452,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT T1.country_code ,  T1.first_name FROM players AS T1 JOIN matches AS T2 ON T1.player_id  =  T2.winner_id WHERE T2.tourney_name  =  'WTA Championships' INTERSECT SELECT T1.country_code ,  T1.first_name FROM players AS T1 JOIN matches AS T2 ON T1.player_id  =  T2.winner_id WHERE T2.tourney_name  =  'Australian Open'",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 459,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT T1.country_code ,  T1.first_name FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id ORDER BY T2.tours DESC LIMIT 1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT  T1.first_name ,  T1.country_code FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id GROUP BY T1.player_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "id": 460,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT T1.country_code ,  T1.first_name FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id ORDER BY T2.tours DESC LIMIT 1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT  T1.first_name ,  T1.country_code FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id GROUP BY T1.player_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "id": 462,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT YEAR FROM matches GROUP BY YEAR ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT  year, COUNT(*) FROM matches GROUP BY year ORDER BY COUNT(*) DESC LIMIT 1;"
+    },
+    {
+        "id": 463,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT winner_name ,  winner_rank_points FROM matches GROUP BY winner_name ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 464,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT winner_name ,  winner_rank_points FROM matches GROUP BY winner_name ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 465,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT winner_name FROM matches WHERE tourney_name  =  'Australian Open' ORDER BY winner_rank_points DESC LIMIT 1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 466,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT winner_name FROM matches WHERE tourney_name  =  'Australian Open' ORDER BY winner_rank_points DESC LIMIT 1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 467,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT winner_name ,  loser_name FROM matches ORDER BY minutes DESC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT  T1.loser_name ,  T1.winner_name FROM matches AS T1 JOIN (SELECT match_num ,  max(minutes) AS max_minutes FROM matches GROUP BY match_num) AS T2 ON T1.match_num  =  T2.match_num AND T1.minutes  =  T2.max_minutes;"
+    },
+    {
+        "id": 468,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT winner_name ,  loser_name FROM matches ORDER BY minutes DESC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT  T1.winner_name ,  T1.loser_name FROM matches AS T1 JOIN matches AS T2 ON T1.match_num  =  T2.match_num WHERE T1.match_num  =  (SELECT max(match_num) FROM matches)"
+    },
+    {
+        "id": 469,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT avg(ranking) ,  T1.first_name FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id GROUP BY T1.first_name",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 470,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT avg(ranking) ,  T1.first_name FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id GROUP BY T1.first_name",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT  T1.first_name ,  avg(T2.ranking) FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id GROUP BY T1.player_id"
+    },
+    {
+        "id": 471,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT sum(ranking_points) ,  T1.first_name FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id GROUP BY T1.first_name",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 474,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT count(*) ,  country_code FROM players GROUP BY country_code",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 477,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT country_code FROM players GROUP BY country_code HAVING count(*)  >  50",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 479,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT sum(tours) ,  ranking_date FROM rankings GROUP BY ranking_date",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT  ranking_date ,  count(*) FROM rankings GROUP BY ranking_date"
+    },
+    {
+        "id": 480,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT sum(tours) ,  ranking_date FROM rankings GROUP BY ranking_date",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT  ranking_date ,  count(*) FROM rankings GROUP BY ranking_date"
+    },
+    {
+        "id": 483,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT DISTINCT winner_name ,  winner_rank FROM matches ORDER BY winner_age LIMIT 3",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT  winner_name ,  winner_rank FROM matches WHERE winner_age  =  ( SELECT MIN ( winner_age ) FROM matches )"
+    },
+    {
+        "id": 484,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT DISTINCT winner_name ,  winner_rank FROM matches ORDER BY winner_age LIMIT 3",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 488,
+        "gold_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "gold": "SELECT T1.first_name ,  T1.country_code ,  T1.birth_date FROM players AS T1 JOIN matches AS T2 ON T1.player_id  =  T2.winner_id ORDER BY T2.winner_rank_points DESC LIMIT 1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/wta_1/wta_1.sqlite",
+        "prediction": "SELECT  T1.first_name ,  T1.country_code ,  T1.birth_date FROM players AS T1 JOIN rankings AS T2 ON T1.player_id  =  T2.player_id GROUP BY T1.player_id ORDER BY count(*) DESC LIMIT 1;"
+    },
+    {
+        "id": 493,
+        "gold_db": "benchmark/spider/database/battle_death/battle_death.sqlite",
+        "gold": "SELECT name ,  date FROM battle",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/battle_death/battle_death.sqlite",
+        "prediction": "SELECT  name ,  date ,  result FROM battle"
+    },
+    {
+        "id": 495,
+        "gold_db": "benchmark/spider/database/battle_death/battle_death.sqlite",
+        "gold": "SELECT avg(injured) FROM death",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/battle_death/battle_death.sqlite",
+        "prediction": "SELECT  avg(injured) FROM death GROUP BY caused_by_ship_id;"
+    },
+    {
+        "id": 496,
+        "gold_db": "benchmark/spider/database/battle_death/battle_death.sqlite",
+        "gold": "SELECT T1.killed ,  T1.injured FROM death AS T1 JOIN ship AS t2 ON T1.caused_by_ship_id  =  T2.id WHERE T2.tonnage  =  't'",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/battle_death/battle_death.sqlite",
+        "prediction": "SELECT  T1.note ,  T1.killed ,  T1.injured FROM death AS T1 JOIN ship AS T2 ON T1.caused_by_ship_id  =  T2.id WHERE T2.tonnage  =  't'"
+    },
+    {
+        "id": 499,
+        "gold_db": "benchmark/spider/database/battle_death/battle_death.sqlite",
+        "gold": "SELECT T1.id ,  T1.name FROM battle AS T1 JOIN ship AS T2 ON T1.id  =  T2.lost_in_battle JOIN death AS T3 ON T2.id  =  T3.caused_by_ship_id GROUP BY T1.id HAVING sum(T3.killed)  >  10",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/battle_death/battle_death.sqlite",
+        "prediction": "SELECT  T1.id ,  T1.name FROM battle AS T1 JOIN death AS T2 ON T1.id  =  T2.caused_by_ship_id GROUP BY T1.id HAVING SUM(T2.killed)  >  10"
+    },
+    {
+        "id": 500,
+        "gold_db": "benchmark/spider/database/battle_death/battle_death.sqlite",
+        "gold": "SELECT T2.id ,  T2.name FROM death AS T1 JOIN ship AS t2 ON T1.caused_by_ship_id  =  T2.id GROUP BY T2.id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/battle_death/battle_death.sqlite",
+        "prediction": "SELECT  T1.id ,  T1.name FROM ship AS T1 JOIN death AS T2 ON T1.id  =  T2.caused_by_ship_id GROUP BY T1.id ORDER BY sum(T2.injured) DESC LIMIT 1"
+    },
+    {
+        "id": 501,
+        "gold_db": "benchmark/spider/database/battle_death/battle_death.sqlite",
+        "gold": "SELECT name FROM battle WHERE bulgarian_commander  =  'Kaloyan' AND latin_commander  =  'Baldwin I'",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/battle_death/battle_death.sqlite",
+        "prediction": "SELECT  DISTINCT T1.name FROM battle AS T1 JOIN ship AS T2 ON T1.id  =  T2.lost_in_battle JOIN death AS T3 ON T2.id  =  T3.caused_by_ship_id WHERE T1.bulgarian_commander  =  'Kaloyan' AND T1.latin_commander  =  'Baldwin I'"
+    },
+    {
+        "id": 503,
+        "gold_db": "benchmark/spider/database/battle_death/battle_death.sqlite",
+        "gold": "SELECT count(*) FROM battle WHERE id NOT IN ( SELECT lost_in_battle FROM ship WHERE tonnage  =  '225' );",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/battle_death/battle_death.sqlite",
+        "prediction": "SELECT  count(*) FROM battle AS t1 JOIN ship AS t2 ON t1.id  =  t2.lost_in_battle WHERE t2.tonnage  =  '225' AND t1.id NOT IN (SELECT  lost_in_battle FROM ship WHERE tonnage  =  '225')"
+    },
+    {
+        "id": 511,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT course_description FROM Courses WHERE course_name  =  'math'",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT  course_description FROM Courses WHERE course_id = 1;"
+    },
+    {
+        "id": 514,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT zip_postcode FROM Addresses WHERE city  =  'Port Chelsea'",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 515,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T2.department_name ,  T1.department_id FROM Degree_Programs AS T1 JOIN Departments AS T2 ON T1.department_id  =  T2.department_id GROUP BY T1.department_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 517,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT count(DISTINCT department_id) FROM Degree_Programs",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 526,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T1.course_name ,  T1.course_id FROM Courses AS T1 JOIN Sections AS T2 ON T1.course_id  =  T2.course_id GROUP BY T1.course_id HAVING count(*)  <=  2",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 529,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T1.semester_name ,  T1.semester_id FROM Semesters AS T1 JOIN Student_Enrolment AS T2 ON T1.semester_id  =  T2.semester_id GROUP BY T1.semester_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 530,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T1.semester_name ,  T1.semester_id FROM Semesters AS T1 JOIN Student_Enrolment AS T2 ON T1.semester_id  =  T2.semester_id GROUP BY T1.semester_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 533,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T1.first_name ,  T1.middle_name ,  T1.last_name ,  T1.student_id FROM Students AS T1 JOIN Student_Enrolment AS T2 ON T1.student_id  =  T2.student_id GROUP BY T1.student_id HAVING count(*)  =  2",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 534,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T1.first_name ,  T1.middle_name ,  T1.last_name ,  T1.student_id FROM Students AS T1 JOIN Student_Enrolment AS T2 ON T1.student_id  =  T2.student_id GROUP BY T1.student_id HAVING count(*)  =  2",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 535,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT DISTINCT T1.first_name ,  T1.middle_name ,  T1.last_name FROM Students AS T1 JOIN Student_Enrolment AS T2 ON T1.student_id  =  T2.student_id JOIN Degree_Programs AS T3 ON T2.degree_program_id  =  T3.degree_program_id WHERE T3.degree_summary_name  =  'Bachelor'",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 536,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT DISTINCT T1.first_name ,  T1.middle_name ,  T1.last_name FROM Students AS T1 JOIN Student_Enrolment AS T2 ON T1.student_id  =  T2.student_id JOIN Degree_Programs AS T3 ON T2.degree_program_id  =  T3.degree_program_id WHERE T3.degree_summary_name  =  'Bachelor'",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 537,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T1.degree_summary_name FROM Degree_Programs AS T1 JOIN Student_Enrolment AS T2 ON T1.degree_program_id  =  T2.degree_program_id GROUP BY T1.degree_summary_name ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 538,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T1.degree_summary_name FROM Degree_Programs AS T1 JOIN Student_Enrolment AS T2 ON T1.degree_program_id  =  T2.degree_program_id GROUP BY T1.degree_summary_name ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 539,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T1.degree_program_id ,  T1.degree_summary_name FROM Degree_Programs AS T1 JOIN Student_Enrolment AS T2 ON T1.degree_program_id  =  T2.degree_program_id GROUP BY T1.degree_program_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 540,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T1.degree_program_id ,  T1.degree_summary_name FROM Degree_Programs AS T1 JOIN Student_Enrolment AS T2 ON T1.degree_program_id  =  T2.degree_program_id GROUP BY T1.degree_program_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 541,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T1.student_id ,  T1.first_name ,  T1.middle_name ,  T1.last_name ,  count(*) ,  T1.student_id FROM Students AS T1 JOIN Student_Enrolment AS T2 ON T1.student_id  =  T2.student_id GROUP BY T1.student_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 542,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T1.student_id ,  T1.first_name ,  T1.middle_name ,  T1.last_name ,  count(*) ,  T1.student_id FROM Students AS T1 JOIN Student_Enrolment AS T2 ON T1.student_id  =  T2.student_id GROUP BY T1.student_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 546,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT DISTINCT T1.course_name FROM Courses AS T1 JOIN Student_Enrolment_Courses AS T2 ON T1.course_id  =  T2.course_id",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT  course_name FROM Courses WHERE course_id IN (SELECT course_id FROM Student_Enrolment_Courses)"
+    },
+    {
+        "id": 547,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT  T1.course_name FROM Courses AS T1 JOIN Student_Enrolment_Courses AS T2 ON T1.course_id  =  T2.course_id GROUP BY T1.course_name ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 548,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT  T1.course_name FROM Courses AS T1 JOIN Student_Enrolment_Courses AS T2 ON T1.course_id  =  T2.course_id GROUP BY T1.course_name ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 549,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T1.last_name FROM Students AS T1 JOIN Addresses AS T2 ON T1.current_address_id  =  T2.address_id WHERE T2.state_province_county  =  'NorthCarolina' EXCEPT SELECT DISTINCT T3.last_name FROM Students AS T3 JOIN Student_Enrolment AS T4 ON T3.student_id  =  T4.student_id",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 550,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T1.last_name FROM Students AS T1 JOIN Addresses AS T2 ON T1.current_address_id  =  T2.address_id WHERE T2.state_province_county  =  'NorthCarolina' EXCEPT SELECT DISTINCT T3.last_name FROM Students AS T3 JOIN Student_Enrolment AS T4 ON T3.student_id  =  T4.student_id",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 552,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T2.transcript_date ,  T1.transcript_id FROM Transcript_Contents AS T1 JOIN Transcripts AS T2 ON T1.transcript_id  =  T2.transcript_id GROUP BY T1.transcript_id HAVING count(*)  >=  2",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 554,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "select cell_mobile_number from students where first_name  =  'timmothy' and last_name  =  'ward'",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT  cell_mobile_number FROM Students WHERE first_name = 'Timmothy' AND last_name = 'Ward';"
+    },
+    {
+        "id": 555,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT first_name ,  middle_name ,  last_name FROM Students ORDER BY date_first_registered ASC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 556,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT first_name ,  middle_name ,  last_name FROM Students ORDER BY date_first_registered ASC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 557,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT first_name ,  middle_name ,  last_name FROM Students ORDER BY date_left ASC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 558,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT first_name ,  middle_name ,  last_name FROM Students ORDER BY date_left ASC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 559,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT first_name FROM Students WHERE current_address_id != permanent_address_id",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 560,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT first_name FROM Students WHERE current_address_id != permanent_address_id",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 561,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T1.address_id ,  T1.line_1 ,  T1.line_2 FROM Addresses AS T1 JOIN Students AS T2 ON T1.address_id  =  T2.current_address_id GROUP BY T1.address_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT  T1.address_id ,  T1.line_1 ,  T1.line_2 ,  T1.line_3 ,  T1.city ,  T1.zip_postcode ,  T1.state_province_county ,  T1.country ,  T1.other_address_details FROM Addresses AS T1 JOIN Students AS T2 ON T1.address_id  =  T2.current_address_id GROUP BY T1.address_id ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "id": 562,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T1.address_id ,  T1.line_1 ,  T1.line_2 FROM Addresses AS T1 JOIN Students AS T2 ON T1.address_id  =  T2.current_address_id GROUP BY T1.address_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 563,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT avg(transcript_date) FROM Transcripts",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 565,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT transcript_date ,  other_details FROM Transcripts ORDER BY transcript_date ASC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT  transcript_date FROM Transcripts ORDER BY transcript_date ASC LIMIT 1"
+    },
+    {
+        "id": 570,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT transcript_date FROM Transcripts ORDER BY transcript_date DESC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 572,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT count(*) ,  student_course_id FROM Transcript_Contents GROUP BY student_course_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 574,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT T2.transcript_date ,  T1.transcript_id FROM Transcript_Contents AS T1 JOIN Transcripts AS T2 ON T1.transcript_id  =  T2.transcript_id GROUP BY T1.transcript_id ORDER BY count(*) ASC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 575,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT DISTINCT T2.semester_id FROM Degree_Programs AS T1 JOIN Student_Enrolment AS T2 ON T1.degree_program_id  =  T2.degree_program_id WHERE degree_summary_name  =  'Master' INTERSECT SELECT DISTINCT T2.semester_id FROM Degree_Programs AS T1 JOIN Student_Enrolment AS T2 ON T1.degree_program_id  =  T2.degree_program_id WHERE degree_summary_name  =  'Bachelor'",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 576,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT DISTINCT T2.semester_id FROM Degree_Programs AS T1 JOIN Student_Enrolment AS T2 ON T1.degree_program_id  =  T2.degree_program_id WHERE degree_summary_name  =  'Master' INTERSECT SELECT DISTINCT T2.semester_id FROM Degree_Programs AS T1 JOIN Student_Enrolment AS T2 ON T1.degree_program_id  =  T2.degree_program_id WHERE degree_summary_name  =  'Bachelor'",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 578,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT count(DISTINCT current_address_id) FROM Students",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 579,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT other_student_details FROM Students ORDER BY other_student_details DESC",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT  first_name ,  middle_name ,  last_name ,  cell_mobile_number ,  email_address ,  ssn ,  date_first_registered ,  date_left ,  other_student_details FROM Students ORDER BY last_name DESC"
+    },
+    {
+        "id": 581,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "SELECT section_description FROM Sections WHERE section_name  =  'h'",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT  section_name, section_description, other_details FROM  Sections WHERE  section_id = 1;"
+    },
+    {
+        "id": 583,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "select t1.first_name from students as t1 join addresses as t2 on t1.permanent_address_id  =  t2.address_id where t2.country  =  'haiti' or t1.cell_mobile_number  =  '09700166582'",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 584,
+        "gold_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "gold": "select t1.first_name from students as t1 join addresses as t2 on t1.permanent_address_id  =  t2.address_id where t2.country  =  'haiti' or t1.cell_mobile_number  =  '09700166582'",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/student_transcripts_tracking/student_transcripts_tracking.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 587,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT Title FROM Cartoon WHERE Directed_by = \"Ben Jones\";",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 589,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT count(*) FROM Cartoon WHERE Written_by = \"Joseph Kuhr\";",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 590,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT count(*) FROM Cartoon WHERE Written_by = \"Joseph Kuhr\";",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 593,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT Title FROM Cartoon WHERE Directed_by = \"Ben Jones\" OR Directed_by = \"Brandon Vietti\";",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 598,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT count(DISTINCT series_name) ,  count(DISTINCT content) FROM TV_Channel;",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 599,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT Content FROM TV_Channel WHERE series_name = \"Sky Radio\";",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 602,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT Package_Option FROM TV_Channel WHERE series_name = \"Sky Radio\";",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 624,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT T1.series_name FROM TV_Channel AS T1 JOIN TV_series AS T2 ON T1.id = T2.Channel WHERE T2.Episode = \"A Love of a Lifetime\";",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 625,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT T2.Episode FROM TV_Channel AS T1 JOIN TV_series AS T2 ON T1.id = T2.Channel WHERE T1.series_name = \"Sky Radio\";",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 626,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT T2.Episode FROM TV_Channel AS T1 JOIN TV_series AS T2 ON T1.id = T2.Channel WHERE T1.series_name = \"Sky Radio\";",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 630,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "select production_code ,  channel from cartoon order by original_air_date desc limit 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 632,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT package_option ,  series_name FROM TV_Channel WHERE hight_definition_TV  =  \"yes\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 634,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT T1.country FROM TV_Channel AS T1 JOIN cartoon AS T2 ON T1.id = T2.Channel WHERE T2.written_by  =  'Todd Casey'",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 635,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT country FROM TV_Channel EXCEPT SELECT T1.country FROM TV_Channel AS T1 JOIN cartoon AS T2 ON T1.id = T2.Channel WHERE T2.written_by  =  'Todd Casey'",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT  Country FROM TV_Channel WHERE id NOT IN (SELECT Channel FROM Cartoon WHERE Written_by = 'Todd Casey');"
+    },
+    {
+        "id": 636,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT country FROM TV_Channel EXCEPT SELECT T1.country FROM TV_Channel AS T1 JOIN cartoon AS T2 ON T1.id = T2.Channel WHERE T2.written_by  =  'Todd Casey'",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 637,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT T1.series_name ,  T1.country FROM TV_Channel AS T1 JOIN cartoon AS T2 ON T1.id = T2.Channel WHERE T2.directed_by  =  'Michael Chang' INTERSECT SELECT T1.series_name ,  T1.country FROM TV_Channel AS T1 JOIN cartoon AS T2 ON T1.id = T2.Channel WHERE T2.directed_by  =  'Ben Jones'",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 638,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT T1.series_name ,  T1.country FROM TV_Channel AS T1 JOIN cartoon AS T2 ON T1.id = T2.Channel WHERE T2.directed_by  =  'Michael Chang' INTERSECT SELECT T1.series_name ,  T1.country FROM TV_Channel AS T1 JOIN cartoon AS T2 ON T1.id = T2.Channel WHERE T2.directed_by  =  'Ben Jones'",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT  T1.series_name ,  T1.Country FROM TV_Channel AS T1 JOIN Cartoon AS T2 ON T1.id  =  T2.Channel WHERE T2.Directed_by  =  'Ben Jones' OR T2.Directed_by  =  'Michael Chang';"
+    },
+    {
+        "id": 641,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT id FROM tv_channel GROUP BY country HAVING count(*)  >  2",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT  T1.id FROM TV_Channel AS T1 JOIN TV_Channel AS T2 ON T1.Country  =  T2.Country GROUP BY T1.Country HAVING COUNT(*)  >  2"
+    },
+    {
+        "id": 642,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT id FROM tv_channel GROUP BY country HAVING count(*)  >  2",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT  T1.id FROM TV_Channel AS T1 JOIN TV_Channel AS T2 ON T1.id  =  T2.id GROUP BY T1.id HAVING COUNT(*)  >  2"
+    },
+    {
+        "id": 644,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT id FROM TV_Channel EXCEPT SELECT channel FROM cartoon WHERE directed_by  =  'Ben Jones'",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 645,
+        "gold_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "gold": "SELECT package_option FROM TV_Channel WHERE id NOT IN (SELECT channel FROM cartoon WHERE directed_by  =  'Ben Jones')",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/tvshow/tvshow.sqlite",
+        "prediction": "SELECT  Package_Option FROM TV_Channel WHERE id IN (SELECT Channel FROM Cartoon WHERE Directed_by  =  'Ben Jones' ) EXCEPT SELECT  Package_Option FROM TV_Channel WHERE id IN (SELECT Channel FROM Cartoon WHERE Directed_by  =  'Ben Jones' )"
+    },
+    {
+        "id": 655,
+        "gold_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "gold": "SELECT Money_Rank FROM poker_player ORDER BY Earnings DESC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "prediction": "SELECT  Earnings FROM poker_player ORDER BY Earnings DESC LIMIT 1"
+    },
+    {
+        "id": 656,
+        "gold_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "gold": "SELECT Money_Rank FROM poker_player ORDER BY Earnings DESC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "prediction": "SELECT  Earnings FROM poker_player ORDER BY Earnings DESC LIMIT 1"
+    },
+    {
+        "id": 660,
+        "gold_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "gold": "SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID  =  T2.People_ID",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 661,
+        "gold_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "gold": "SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID  =  T2.People_ID WHERE T2.Earnings  >  300000",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 663,
+        "gold_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "gold": "SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T2.Final_Table_Made",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 664,
+        "gold_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "gold": "SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T2.Final_Table_Made",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 667,
+        "gold_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "gold": "SELECT T2.Money_Rank FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T1.Height DESC LIMIT 1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 668,
+        "gold_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "gold": "SELECT T2.Money_Rank FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T1.Height DESC LIMIT 1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 669,
+        "gold_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "gold": "SELECT avg(T2.Earnings) FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID  =  T2.People_ID WHERE T1.Height  >  200",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 672,
+        "gold_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "gold": "SELECT T1.Name FROM people AS T1 JOIN poker_player AS T2 ON T1.People_ID  =  T2.People_ID ORDER BY T2.Earnings DESC",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 676,
+        "gold_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "gold": "SELECT Nationality FROM people GROUP BY Nationality ORDER BY COUNT(*) DESC LIMIT 1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/poker_player/poker_player.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 698,
+        "gold_db": "benchmark/spider/database/voter_1/voter_1.sqlite",
+        "gold": "SELECT T1.area_code FROM area_code_state AS T1 JOIN votes AS T2 ON T1.state  =  T2.state GROUP BY T1.area_code ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/voter_1/voter_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 700,
+        "gold_db": "benchmark/spider/database/voter_1/voter_1.sqlite",
+        "gold": "SELECT T3.area_code FROM contestants AS T1 JOIN votes AS T2 ON T1.contestant_number  =  T2.contestant_number JOIN area_code_state AS T3 ON T2.state  =  T3.state WHERE T1.contestant_name  =  'Tabatha Gehling' INTERSECT SELECT T3.area_code FROM contestants AS T1 JOIN votes AS T2 ON T1.contestant_number  =  T2.contestant_number JOIN area_code_state AS T3 ON T2.state  =  T3.state WHERE T1.contestant_name  =  'Kelly Clauss'",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/voter_1/voter_1.sqlite",
+        "prediction": "SELECT  T1.area_code FROM AREA_CODE_STATE AS T1 JOIN VOTES AS T2 ON T1.state  =  T2.state WHERE T2.contestant_number  =  1 INTERSECT SELECT  T1.area_code FROM AREA_CODE_STATE AS T1 JOIN VOTES AS T2 ON T1.state  =  T2.state WHERE T2.contestant_number  =  2"
+    },
+    {
+        "id": 702,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Name FROM country WHERE IndepYear  >  1950",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 703,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Name FROM country WHERE IndepYear  >  1950",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 705,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT count(*) FROM country WHERE GovernmentForm  =  \"Republic\"",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 710,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Region FROM country AS T1 JOIN city AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Name  =  \"Kabul\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 711,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Region FROM country AS T1 JOIN city AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Name  =  \"Kabul\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 712,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT T2.Language FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T1.Name  =  \"Aruba\" ORDER BY Percentage DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  Language FROM countrylanguage WHERE CountryCode  =  'ABW' GROUP BY Language ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "id": 716,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Population ,  Region FROM country WHERE Name  =  \"Angola\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  Region ,  Population FROM country WHERE Code  =  'AO';"
+    },
+    {
+        "id": 719,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT avg(LifeExpectancy) FROM country WHERE Region  =  \"Central Africa\"",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 720,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Name FROM country WHERE Continent  =  \"Asia\" ORDER BY LifeExpectancy LIMIT 1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 723,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT sum(Population) ,  max(GNP) FROM country WHERE Continent  =  \"Asia\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  count(*) ,  max(GNP) FROM country WHERE Continent  =  'Asia'"
+    },
+    {
+        "id": 728,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT sum(Population) FROM city WHERE District  =  \"Gelderland\"",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  Population FROM city WHERE District = \"Gelderland\";"
+    },
+    {
+        "id": 729,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT sum(Population) FROM city WHERE District  =  \"Gelderland\"",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  Population FROM city WHERE District = 'Gelderland'"
+    },
+    {
+        "id": 730,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT avg(GNP) ,  sum(population) FROM country WHERE GovernmentForm  =  \"US Territory\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  avg(GNP) ,  sum(Population) FROM country WHERE GovernmentForm  =  'Nonmetropolitan Territory of The Netherlands'"
+    },
+    {
+        "id": 731,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT avg(GNP) ,  sum(population) FROM country WHERE GovernmentForm  =  \"US Territory\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  avg(gnp) ,  sum(population) FROM country WHERE continent  =  'North America'"
+    },
+    {
+        "id": 734,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT count(DISTINCT GovernmentForm) FROM country WHERE Continent  =  \"Africa\"",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  DISTINCT governmentform FROM country WHERE continent = 'Africa';"
+    },
+    {
+        "id": 735,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT count(DISTINCT GovernmentForm) FROM country WHERE Continent  =  \"Africa\"",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 740,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode GROUP BY T1.Name ORDER BY COUNT(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 741,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode GROUP BY T1.Name ORDER BY COUNT(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode GROUP BY T1.Code ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "id": 742,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT T1.Continent FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode GROUP BY T1.Continent ORDER BY COUNT(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 743,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT T1.Continent FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode GROUP BY T1.Continent ORDER BY COUNT(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 744,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT COUNT(*) FROM (SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" INTERSECT SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"Dutch\")",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 745,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT COUNT(*) FROM (SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" INTERSECT SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"Dutch\")",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  COUNT(DISTINCT country.name) FROM country, countrylanguage WHERE country.code = countrylanguage.countrycode AND countrylanguage.language IN ('English', 'Dutch');"
+    },
+    {
+        "id": 746,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" INTERSECT SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"French\"",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 748,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" AND T2.IsOfficial  =  \"T\" INTERSECT SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"French\" AND T2.IsOfficial  =  \"T\"",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  'English' INTERSECT SELECT  T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  'French'"
+    },
+    {
+        "id": 749,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" AND T2.IsOfficial  =  \"T\" INTERSECT SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"French\" AND T2.IsOfficial  =  \"T\"",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" OR T2.Language  =  \"French\""
+    },
+    {
+        "id": 750,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT COUNT( DISTINCT Continent) FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"Chinese\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 751,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT COUNT( DISTINCT Continent) FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"Chinese\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 752,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT DISTINCT T1.Region FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" OR T2.Language  =  \"Dutch\"",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 753,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT DISTINCT T1.Region FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" OR T2.Language  =  \"Dutch\"",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 754,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "select t1.name from country as t1 join countrylanguage as t2 on t1.code  =  t2.countrycode where t2.language  =  \"english\" and isofficial  =  \"t\" union select t1.name from country as t1 join countrylanguage as t2 on t1.code  =  t2.countrycode where t2.language  =  \"dutch\" and isofficial  =  \"t\"",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code = T2.CountryCode WHERE T2.Language = 'English' OR T2.Language = 'Dutch'"
+    },
+    {
+        "id": 755,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT * FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" AND IsOfficial  =  \"T\" UNION SELECT * FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"Dutch\" AND IsOfficial  =  \"T\"",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  'English' OR T2.Language  =  'Dutch'"
+    },
+    {
+        "id": 756,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT T2.Language FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T1.Continent  =  \"Asia\" GROUP BY T2.Language ORDER BY COUNT (*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 757,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT T2.Language FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T1.Continent  =  \"Asia\" GROUP BY T2.Language ORDER BY COUNT (*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 758,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT T2.Language FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T1.GovernmentForm  =  \"Republic\" GROUP BY T2.Language HAVING COUNT(*)  =  1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  Language FROM countrylanguage WHERE IsOfficial  =  'T' AND CountryCode  IN (SELECT CountryCode FROM country WHERE GovernmentForm  =  'Republic') GROUP BY Language HAVING COUNT(*) = 1"
+    },
+    {
+        "id": 759,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT T2.Language FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T1.GovernmentForm  =  \"Republic\" GROUP BY T2.Language HAVING COUNT(*)  =  1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 760,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT T1.Name ,  T1.Population FROM city AS T1 JOIN countrylanguage AS T2 ON T1.CountryCode  =  T2.CountryCode WHERE T2.Language  =  \"English\" ORDER BY T1.Population DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  city.Name FROM city JOIN countrylanguage ON city.CountryCode = countrylanguage.CountryCode WHERE countrylanguage.Language = 'English' AND city.Population = (SELECT MAX(city.Population) FROM city JOIN countrylanguage ON city.CountryCode = countrylanguage.CountryCode WHERE countrylanguage.Language = 'English');"
+    },
+    {
+        "id": 761,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT T1.Name ,  T1.Population FROM city AS T1 JOIN countrylanguage AS T2 ON T1.CountryCode  =  T2.CountryCode WHERE T2.Language  =  \"English\" ORDER BY T1.Population DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 763,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Name ,  Population ,  LifeExpectancy FROM country WHERE Continent  =  \"Asia\" ORDER BY SurfaceArea DESC LIMIT 1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 764,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT avg(LifeExpectancy) FROM country WHERE Name NOT IN (SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" AND T2.IsOfficial  =  \"T\")",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 765,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT avg(LifeExpectancy) FROM country WHERE Name NOT IN (SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\" AND T2.IsOfficial  =  \"T\")",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 766,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT sum(Population) FROM country WHERE Name NOT IN (SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\")",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  sum(population) FROM country WHERE code2 != 'ENG'"
+    },
+    {
+        "id": 767,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT sum(Population) FROM country WHERE Name NOT IN (SELECT T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T2.Language  =  \"English\")",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  COUNT(*) FROM countrylanguage WHERE Language != 'English'"
+    },
+    {
+        "id": 768,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT T2.Language FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T1.HeadOfState  =  \"Beatrix\" AND T2.IsOfficial  =  \"T\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  Language FROM countrylanguage WHERE CountryCode = (SELECT Code FROM country WHERE HeadOfState = 'Beatrix');"
+    },
+    {
+        "id": 769,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT T2.Language FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE T1.HeadOfState  =  \"Beatrix\" AND T2.IsOfficial  =  \"T\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  T2.Language FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code = T2.CountryCode WHERE T1.HeadOfState = 'Beatrix';"
+    },
+    {
+        "id": 770,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT count(DISTINCT T2.Language) FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE  IndepYear  <  1930 AND T2.IsOfficial  =  \"T\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 771,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT count(DISTINCT T2.Language) FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode WHERE  IndepYear  <  1930 AND T2.IsOfficial  =  \"T\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 772,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Name FROM country WHERE SurfaceArea  >  (SELECT min(SurfaceArea) FROM country WHERE Continent  =  \"Europe\")",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  Name FROM country WHERE SurfaceArea  >  (SELECT max(SurfaceArea) FROM country WHERE Continent  =  'Europe')"
+    },
+    {
+        "id": 773,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Name FROM country WHERE SurfaceArea  >  (SELECT min(SurfaceArea) FROM country WHERE Continent  =  \"Europe\")",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  country.Name FROM country WHERE country.SurfaceArea > (SELECT MAX(SurfaceArea) FROM country WHERE Continent = 'Europe')"
+    },
+    {
+        "id": 775,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Name FROM country WHERE Continent  =  \"Africa\"  AND population  <  (SELECT min(population) FROM country WHERE Continent  =  \"Asia\")",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  T1.Name FROM country AS T1 JOIN country AS T2 ON T1.Population  <  T2.Population WHERE T1.Continent  =  'Africa' AND T2.Continent  =  'Asia'"
+    },
+    {
+        "id": 777,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Name FROM country WHERE Continent  =  \"Asia\"  AND population  >  (SELECT min(population) FROM country WHERE Continent  =  \"Africa\")",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  Name FROM country WHERE Continent = 'Asia' AND Population > (SELECT MAX(Population) FROM country WHERE Continent = 'Africa')"
+    },
+    {
+        "id": 778,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT CountryCode FROM countrylanguage EXCEPT SELECT CountryCode FROM countrylanguage WHERE LANGUAGE  =  \"English\"",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  countrycode FROM countrylanguage WHERE language  !=  'English'"
+    },
+    {
+        "id": 779,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT CountryCode FROM countrylanguage EXCEPT SELECT CountryCode FROM countrylanguage WHERE LANGUAGE  =  \"English\"",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  CountryCode FROM countrylanguage WHERE Language != 'English'"
+    },
+    {
+        "id": 781,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT DISTINCT CountryCode FROM countrylanguage WHERE LANGUAGE != \"English\"",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 782,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Code FROM country WHERE GovernmentForm != \"Republic\" EXCEPT SELECT CountryCode FROM countrylanguage WHERE LANGUAGE  =  \"English\"",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 783,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Code FROM country WHERE GovernmentForm != \"Republic\" EXCEPT SELECT CountryCode FROM countrylanguage WHERE LANGUAGE  =  \"English\"",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 784,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT DISTINCT T2.Name FROM country AS T1 JOIN city AS T2 ON T2.CountryCode  =  T1.Code WHERE T1.Continent  =  'Europe' AND T1.Name NOT IN (SELECT T3.Name FROM country AS T3 JOIN countrylanguage AS T4 ON T3.Code  =  T4.CountryCode WHERE T4.IsOfficial  =  'T' AND T4.Language  =  'English')",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 785,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT DISTINCT T2.Name FROM country AS T1 JOIN city AS T2 ON T2.CountryCode  =  T1.Code WHERE T1.Continent  =  'Europe' AND T1.Name NOT IN (SELECT T3.Name FROM country AS T3 JOIN countrylanguage AS T4 ON T3.Code  =  T4.CountryCode WHERE T4.IsOfficial  =  'T' AND T4.Language  =  'English')",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 786,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "select distinct t3.name from country as t1 join countrylanguage as t2 on t1.code  =  t2.countrycode join city as t3 on t1.code  =  t3.countrycode where t2.isofficial  =  't' and t2.language  =  'chinese' and t1.continent  =  \"asia\"",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 787,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT DISTINCT T3.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode JOIN city AS T3 ON T1.Code  =  T3.CountryCode WHERE T2.IsOfficial  =  'T' AND T2.Language  =  'Chinese' AND T1.Continent  =  \"Asia\"",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 788,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Name ,  SurfaceArea ,  IndepYear FROM country ORDER BY Population LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 789,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Name ,  SurfaceArea ,  IndepYear FROM country ORDER BY Population LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 790,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Name ,  population ,  HeadOfState FROM country ORDER BY SurfaceArea DESC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 792,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT COUNT(T2.Language) ,  T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode GROUP BY T1.Name HAVING COUNT(*)  >  2",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 793,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT COUNT(T2.Language) ,  T1.Name FROM country AS T1 JOIN countrylanguage AS T2 ON T1.Code  =  T2.CountryCode GROUP BY T1.Name HAVING COUNT(*)  >  2",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 794,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT count(*) ,  District FROM city WHERE Population  >  (SELECT avg(Population) FROM city) GROUP BY District",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  district,  count(*) FROM city GROUP BY district HAVING avg(population)  >  (SELECT avg(population) FROM city)"
+    },
+    {
+        "id": 796,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT sum(Population) ,  GovernmentForm FROM country GROUP BY GovernmentForm HAVING avg(LifeExpectancy)  >  72",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 797,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT sum(Population) ,  GovernmentForm FROM country GROUP BY GovernmentForm HAVING avg(LifeExpectancy)  >  72",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 798,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT sum(Population) ,  avg(LifeExpectancy) ,  Continent FROM country GROUP BY Continent HAVING avg(LifeExpectancy)  <  72",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  Continent ,  AVG(LifeExpectancy) ,  SUM(Population) FROM country WHERE LifeExpectancy < 72 GROUP BY Continent"
+    },
+    {
+        "id": 799,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT sum(Population) ,  avg(LifeExpectancy) ,  Continent FROM country GROUP BY Continent HAVING avg(LifeExpectancy)  <  72",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  Continent ,  SUM(Population) ,  AVG(LifeExpectancy) FROM country WHERE LifeExpectancy < 72 GROUP BY Continent"
+    },
+    {
+        "id": 802,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Name FROM country ORDER BY Population DESC LIMIT 3",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 805,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT Name FROM country ORDER BY Population ASC LIMIT 3",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  T1.Name FROM country AS T1 JOIN sqlite_sequence AS T2 ON T1.Code  =  T2.name GROUP BY T1.Code ORDER BY T2.seq ASC LIMIT 3"
+    },
+    {
+        "id": 806,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT count(*) FROM country WHERE continent  =  \"Asia\"",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 810,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "select sum(population) ,  avg(surfacearea) from country where continent  =  \"north america\" and surfacearea  >  3000",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  sum(Population) ,  avg(SurfaceArea) FROM country WHERE Continent  =  'North America' AND SurfaceArea  >  3000"
+    },
+    {
+        "id": 811,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "select sum(population) ,  avg(surfacearea) from country where continent  =  \"north america\" and surfacearea  >  3000",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  sum(population) ,  avg(surfacearea) FROM country WHERE continent  =  'North America' AND surfacearea  >  3000"
+    },
+    {
+        "id": 816,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT LANGUAGE ,  CountryCode ,  max(Percentage) FROM countrylanguage GROUP BY CountryCode",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 817,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT LANGUAGE ,  CountryCode ,  max(Percentage) FROM countrylanguage GROUP BY CountryCode",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  country.code,  countrylanguage.language,  countrylanguage.percentage FROM country, countrylanguage WHERE country.code = countrylanguage.countrycode ORDER BY countrylanguage.percentage DESC"
+    },
+    {
+        "id": 818,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT count(*) ,   max(Percentage) FROM countrylanguage WHERE LANGUAGE  =  \"Spanish\" GROUP BY CountryCode",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  COUNT(*) FROM countrylanguage WHERE Language  =  'Spanish' AND Percentage  =  (SELECT MAX(Percentage) FROM countrylanguage WHERE Language  =  'Spanish');"
+    },
+    {
+        "id": 819,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT count(*) ,   max(Percentage) FROM countrylanguage WHERE LANGUAGE  =  \"Spanish\" GROUP BY CountryCode",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT  COUNT (DISTINCT CountryCode) FROM countrylanguage WHERE Language  =  'Spanish' AND IsOfficial  =  'T';"
+    },
+    {
+        "id": 820,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT CountryCode ,  max(Percentage) FROM countrylanguage WHERE LANGUAGE  =  \"Spanish\" GROUP BY CountryCode",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 821,
+        "gold_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "gold": "SELECT CountryCode ,  max(Percentage) FROM countrylanguage WHERE LANGUAGE  =  \"Spanish\" GROUP BY CountryCode",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/world_1/world_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 832,
+        "gold_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "gold": "SELECT max(SHARE) ,  min(SHARE) FROM performance WHERE TYPE != \"Live final\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "prediction": "SELECT  max(Share) ,  min(Share) FROM show AS T1 JOIN performance AS T2 ON T1.Performance_ID  =  T2.Performance_ID WHERE T2.Type != \"Live final\""
+    },
+    {
+        "id": 838,
+        "gold_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "gold": "SELECT Name FROM conductor ORDER BY Year_of_Work DESC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 839,
+        "gold_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "gold": "SELECT Name FROM conductor ORDER BY Year_of_Work DESC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "prediction": "SELECT  T1.Name FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID GROUP BY T1.Conductor_ID ORDER BY COUNT(*) DESC LIMIT 1"
+    },
+    {
+        "id": 840,
+        "gold_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "gold": "SELECT T1.Name ,  T2.Orchestra FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 841,
+        "gold_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "gold": "SELECT T1.Name ,  T2.Orchestra FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 844,
+        "gold_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "gold": "SELECT T1.Name FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID GROUP BY T2.Conductor_ID ORDER BY COUNT(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 846,
+        "gold_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "gold": "SELECT T1.Name FROM conductor AS T1 JOIN orchestra AS T2 ON T1.Conductor_ID  =  T2.Conductor_ID WHERE Year_of_Founded  >  2008",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 850,
+        "gold_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "gold": "SELECT Major_Record_Format FROM orchestra GROUP BY Major_Record_Format ORDER BY COUNT(*) ASC",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "prediction": "SELECT  Major_Record_Format FROM orchestra ORDER BY Major_Record_Format ASC"
+    },
+    {
+        "id": 851,
+        "gold_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "gold": "SELECT Major_Record_Format FROM orchestra GROUP BY Major_Record_Format ORDER BY COUNT(*) ASC",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "prediction": "SELECT  Major_Record_Format FROM orchestra GROUP BY Major_Record_Format ORDER BY COUNT(*) DESC"
+    },
+    {
+        "id": 859,
+        "gold_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "gold": "SELECT COUNT(*) FROM orchestra WHERE Major_Record_Format  =  \"CD\" OR Major_Record_Format  =  \"DVD\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/orchestra/orchestra.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 879,
+        "gold_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "gold": "SELECT grade FROM Highschooler GROUP BY grade ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 884,
+        "gold_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "gold": "SELECT T2.name ,  count(*) FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id  =  T2.id GROUP BY T1.student_id",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "prediction": "SELECT  T1.name ,  COUNT(T2.student_id) AS friends FROM Highschooler AS T1 LEFT JOIN Friend AS T2 ON T1.ID  =  T2.student_id GROUP BY T1.name"
+    },
+    {
+        "id": 885,
+        "gold_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "gold": "SELECT T2.name ,  count(*) FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id  =  T2.id GROUP BY T1.student_id",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 890,
+        "gold_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "gold": "SELECT T3.name FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id  =  T2.id JOIN Highschooler AS T3 ON T1.friend_id  =  T3.id WHERE T2.name  =  \"Kyle\"",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 891,
+        "gold_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "gold": "SELECT T3.name FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id  =  T2.id JOIN Highschooler AS T3 ON T1.friend_id  =  T3.id WHERE T2.name  =  \"Kyle\"",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "prediction": "SELECT  T1.name FROM Highschooler AS T1 JOIN Friend AS T2 ON T1.ID  =  T2.student_id WHERE T2.friend_id  =  1101;"
+    },
+    {
+        "id": 893,
+        "gold_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "gold": "SELECT count(*) FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id  =  T2.id WHERE T2.name  =  \"Kyle\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "prediction": "SELECT  COUNT(*) FROM Friend WHERE student_id = 1025;"
+    },
+    {
+        "id": 896,
+        "gold_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "gold": "SELECT name FROM Highschooler EXCEPT SELECT T2.name FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id  =  T2.id",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 898,
+        "gold_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "gold": "SELECT student_id FROM Friend INTERSECT SELECT liked_id FROM Likes",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "prediction": "SELECT  T1.ID FROM Highschooler AS T1 JOIN Friend AS T2 ON T1.ID  =  T2.student_id JOIN Likes AS T3 ON T1.ID  =  T3.liked_id"
+    },
+    {
+        "id": 900,
+        "gold_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "gold": "SELECT T2.name FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id  =  T2.id INTERSECT SELECT T2.name FROM Likes AS T1 JOIN Highschooler AS T2 ON T1.liked_id  =  T2.id",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "prediction": "SELECT  name FROM Highschooler AS T1 JOIN Friend AS T2 ON T1.ID  =  T2.student_id JOIN Likes AS T3 ON T1.ID  =  T3.liked_id"
+    },
+    {
+        "id": 901,
+        "gold_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "gold": "SELECT T2.name FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id  =  T2.id INTERSECT SELECT T2.name FROM Likes AS T1 JOIN Highschooler AS T2 ON T1.liked_id  =  T2.id",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "prediction": "SELECT  name FROM Highschooler AS T1 JOIN Friend AS T2 ON T1.ID = T2.student_id JOIN Likes AS T3 ON T1.ID = T3.liked_id"
+    },
+    {
+        "id": 905,
+        "gold_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "gold": "SELECT T2.name ,  count(*) FROM Likes AS T1 JOIN Highschooler AS T2 ON T1.student_id  =  T2.id GROUP BY T1.student_id",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "prediction": "SELECT  T1.name ,  count(*) FROM Highschooler AS T1 JOIN Likes AS T2 ON T1.ID  =  T2.student_id GROUP BY T1.name"
+    },
+    {
+        "id": 911,
+        "gold_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "gold": "SELECT T2.name FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id  =  T2.id WHERE T2.grade  >  5 GROUP BY T1.student_id HAVING count(*)  >=  2",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 915,
+        "gold_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "gold": "SELECT avg(grade) FROM Highschooler WHERE id IN (SELECT T1.student_id FROM Friend AS T1 JOIN Highschooler AS T2 ON T1.student_id  =  T2.id)",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/network_1/network_1.sqlite",
+        "prediction": "SELECT  AVG(grade) FROM Highschooler AS T1 JOIN Friend AS T2 ON T1.ID  =  T2.student_id"
+    },
+    {
+        "id": 919,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT state FROM Owners INTERSECT SELECT state FROM Professionals",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 920,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT avg(age) FROM Dogs WHERE dog_id IN ( SELECT dog_id FROM Treatments )",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 921,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT avg(age) FROM Dogs WHERE dog_id IN ( SELECT dog_id FROM Treatments )",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 922,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT professional_id ,  last_name ,  cell_number FROM Professionals WHERE state  =  'Indiana' UNION SELECT T1.professional_id ,  T1.last_name ,  T1.cell_number FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id GROUP BY T1.professional_id HAVING count(*)  >  2",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 923,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT professional_id ,  last_name ,  cell_number FROM Professionals WHERE state  =  'Indiana' UNION SELECT T1.professional_id ,  T1.last_name ,  T1.cell_number FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id GROUP BY T1.professional_id HAVING count(*)  >  2",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 924,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "select name from dogs where dog_id not in ( select dog_id from treatments group by dog_id having sum(cost_of_treatment)  >  1000 )",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 925,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "select name from dogs where dog_id not in ( select dog_id from treatments group by dog_id having sum(cost_of_treatment)  >  1000 )",
+        "hardness": "hard",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 928,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT professional_id ,  role_code ,  email_address FROM Professionals EXCEPT SELECT T1.professional_id ,  T1.role_code ,  T1.email_address FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 929,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT professional_id ,  role_code ,  email_address FROM Professionals EXCEPT SELECT T1.professional_id ,  T1.role_code ,  T1.email_address FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 930,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.owner_id ,  T2.first_name ,  T2.last_name FROM Dogs AS T1 JOIN Owners AS T2 ON T1.owner_id  =  T2.owner_id GROUP BY T1.owner_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 931,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.owner_id ,  T2.first_name ,  T2.last_name FROM Dogs AS T1 JOIN Owners AS T2 ON T1.owner_id  =  T2.owner_id GROUP BY T1.owner_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 932,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.professional_id ,  T1.role_code ,  T1.first_name FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id GROUP BY T1.professional_id HAVING count(*)  >=  2",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 933,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.professional_id ,  T1.role_code ,  T1.first_name FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id GROUP BY T1.professional_id HAVING count(*)  >=  2",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 934,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.breed_name FROM Breeds AS T1 JOIN Dogs AS T2 ON T1.breed_code  =  T2.breed_code GROUP BY T1.breed_name ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT  breed_name FROM Breeds GROUP BY breed_name ORDER BY count(*) DESC LIMIT 1"
+    },
+    {
+        "id": 935,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.breed_name FROM Breeds AS T1 JOIN Dogs AS T2 ON T1.breed_code  =  T2.breed_code GROUP BY T1.breed_name ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 936,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.owner_id ,  T1.last_name FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id JOIN Treatments AS T3 ON T2.dog_id  =  T3.dog_id GROUP BY T1.owner_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 937,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.owner_id ,  T1.last_name FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id JOIN Treatments AS T3 ON T2.dog_id  =  T3.dog_id GROUP BY T1.owner_id ORDER BY count(*) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 938,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.treatment_type_description FROM Treatment_types AS T1 JOIN Treatments AS T2 ON T1.treatment_type_code  =  T2.treatment_type_code GROUP BY T1.treatment_type_code ORDER BY sum(cost_of_treatment) ASC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 939,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.treatment_type_description FROM Treatment_types AS T1 JOIN Treatments AS T2 ON T1.treatment_type_code  =  T2.treatment_type_code GROUP BY T1.treatment_type_code ORDER BY sum(cost_of_treatment) ASC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 940,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.owner_id ,  T1.zip_code FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id JOIN Treatments AS T3 ON T2.dog_id  =  T3.dog_id GROUP BY T1.owner_id ORDER BY sum(T3.cost_of_treatment) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 941,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.owner_id ,  T1.zip_code FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id JOIN Treatments AS T3 ON T2.dog_id  =  T3.dog_id GROUP BY T1.owner_id ORDER BY sum(T3.cost_of_treatment) DESC LIMIT 1",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 942,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.professional_id ,  T1.cell_number FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id GROUP BY T1.professional_id HAVING count(*)  >=  2",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 943,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.professional_id ,  T1.cell_number FROM Professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id GROUP BY T1.professional_id HAVING count(*)  >=  2",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 944,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT DISTINCT T1.first_name ,  T1.last_name FROM Professionals AS T1 JOIN Treatments AS T2 WHERE cost_of_treatment  <  ( SELECT avg(cost_of_treatment) FROM Treatments )",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 945,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT DISTINCT T1.first_name ,  T1.last_name FROM Professionals AS T1 JOIN Treatments AS T2 WHERE cost_of_treatment  <  ( SELECT avg(cost_of_treatment) FROM Treatments )",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 946,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.date_of_treatment ,  T2.first_name FROM Treatments AS T1 JOIN Professionals AS T2 ON T1.professional_id  =  T2.professional_id",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 947,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.date_of_treatment ,  T2.first_name FROM Treatments AS T1 JOIN Professionals AS T2 ON T1.professional_id  =  T2.professional_id",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 948,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.cost_of_treatment ,  T2.treatment_type_description FROM Treatments AS T1 JOIN treatment_types AS T2 ON T1.treatment_type_code  =  T2.treatment_type_code",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 949,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.cost_of_treatment ,  T2.treatment_type_description FROM Treatments AS T1 JOIN treatment_types AS T2 ON T1.treatment_type_code  =  T2.treatment_type_code",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 950,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.first_name ,  T1.last_name ,  T2.size_code FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 951,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.first_name ,  T1.last_name ,  T2.size_code FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 952,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.first_name ,  T2.name FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 953,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.first_name ,  T2.name FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 954,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.name ,  T2.date_of_treatment FROM Dogs AS T1 JOIN Treatments AS T2 ON T1.dog_id  =  T2.dog_id WHERE T1.breed_code  =  ( SELECT breed_code FROM Dogs GROUP BY breed_code ORDER BY count(*) ASC LIMIT 1 )",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 955,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.name ,  T2.date_of_treatment FROM Dogs AS T1 JOIN Treatments AS T2 ON T1.dog_id  =  T2.dog_id WHERE T1.breed_code  =  ( SELECT breed_code FROM Dogs GROUP BY breed_code ORDER BY count(*) ASC LIMIT 1 )",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 956,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.first_name ,  T2.name FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id WHERE T1.state  =  'Virginia'",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 957,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.first_name ,  T2.name FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id WHERE T1.state  =  'Virginia'",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 958,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT DISTINCT T1.date_arrived ,  T1.date_departed FROM Dogs AS T1 JOIN Treatments AS T2 ON T1.dog_id  =  T2.dog_id",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 959,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT DISTINCT T1.date_arrived ,  T1.date_departed FROM Dogs AS T1 JOIN Treatments AS T2 ON T1.dog_id  =  T2.dog_id",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 960,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.last_name FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id WHERE T2.age  =  ( SELECT max(age) FROM Dogs )",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 961,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT T1.last_name FROM Owners AS T1 JOIN Dogs AS T2 ON T1.owner_id  =  T2.owner_id WHERE T2.age  =  ( SELECT max(age) FROM Dogs )",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 962,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT email_address FROM Professionals WHERE state  =  'Hawaii' OR state  =  'Wisconsin'",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 963,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT email_address FROM Professionals WHERE state  =  'Hawaii' OR state  =  'Wisconsin'",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 966,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT count(DISTINCT dog_id) FROM Treatments",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 967,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT count(DISTINCT dog_id) FROM Treatments",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 968,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT count(DISTINCT professional_id) FROM Treatments",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 976,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT cost_of_treatment FROM Treatments ORDER BY date_of_treatment DESC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT  cost_of_treatment FROM Treatments WHERE treatment_id  =  (SELECT treatment_id FROM Treatments ORDER BY treatment_id DESC LIMIT 1)"
+    },
+    {
+        "id": 977,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT cost_of_treatment FROM Treatments ORDER BY date_of_treatment DESC LIMIT 1",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT  cost_of_treatment FROM Treatments WHERE treatment_id  =  (SELECT max(treatment_id) FROM Treatments);"
+    },
+    {
+        "id": 982,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT count(*) FROM Professionals WHERE professional_id NOT IN ( SELECT professional_id FROM Treatments )",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 983,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT count(*) FROM Professionals WHERE professional_id NOT IN ( SELECT professional_id FROM Treatments )",
+        "hardness": "extra",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 990,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT charge_type ,  charge_amount FROM Charges",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 996,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT DISTINCT breed_code ,  size_code FROM dogs",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 998,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT DISTINCT T1.first_name ,  T3.treatment_type_description FROM professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id JOIN Treatment_types AS T3 ON T2.treatment_type_code  =  T3.treatment_type_code",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 999,
+        "gold_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "gold": "SELECT DISTINCT T1.first_name ,  T3.treatment_type_description FROM professionals AS T1 JOIN Treatments AS T2 ON T1.professional_id  =  T2.professional_id JOIN Treatment_types AS T3 ON T2.treatment_type_code  =  T3.treatment_type_code",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/dog_kennels/dog_kennels.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 1001,
+        "gold_db": "benchmark/spider/database/singer/singer.sqlite",
+        "gold": "SELECT count(*) FROM singer",
+        "hardness": "easy",
+        "prediction_db": "benchmark/spider/database/singer/singer.sqlite",
+        "prediction": "SELECT 1 FROM singer"
+    },
+    {
+        "id": 1018,
+        "gold_db": "benchmark/spider/database/singer/singer.sqlite",
+        "gold": "SELECT T2.Title ,  T1.Name FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID  =  T2.Singer_ID",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/singer/singer.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 1020,
+        "gold_db": "benchmark/spider/database/singer/singer.sqlite",
+        "gold": "SELECT DISTINCT T1.Name FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID  =  T2.Singer_ID WHERE T2.Sales  >  300000",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/singer/singer.sqlite",
+        "prediction": "SELECT  Name FROM singer INNER JOIN song ON singer.Singer_ID = song.Singer_ID GROUP BY Name HAVING sum(Sales)  >  300000"
+    },
+    {
+        "id": 1021,
+        "gold_db": "benchmark/spider/database/singer/singer.sqlite",
+        "gold": "SELECT DISTINCT T1.Name FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID  =  T2.Singer_ID WHERE T2.Sales  >  300000",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/singer/singer.sqlite",
+        "prediction": "SELECT  DISTINCT T1.Name FROM singer AS T1 JOIN song AS T2 ON T1.Singer_ID  =  T2.Singer_ID GROUP BY T1.Name HAVING sum(T2.Sales)  >  300000"
+    },
+    {
+        "id": 1031,
+        "gold_db": "benchmark/spider/database/real_estate_properties/real_estate_properties.sqlite",
+        "gold": "SELECT T2.feature_type_name FROM Other_Available_Features AS T1 JOIN Ref_Feature_Types AS T2 ON T1.feature_type_code  =  T2.feature_type_code WHERE T1.feature_name  =  \"AirCon\"",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/real_estate_properties/real_estate_properties.sqlite",
+        "prediction": "SELECT"
+    },
+    {
+        "id": 1032,
+        "gold_db": "benchmark/spider/database/real_estate_properties/real_estate_properties.sqlite",
+        "gold": "SELECT T2.property_type_description FROM Properties AS T1 JOIN Ref_Property_Types AS T2 ON T1.property_type_code  =  T2.property_type_code GROUP BY T1.property_type_code",
+        "hardness": "medium",
+        "prediction_db": "benchmark/spider/database/real_estate_properties/real_estate_properties.sqlite",
+        "prediction": "SELECT  T2.property_type_description FROM Properties AS T1 JOIN Ref_Property_Types AS T2 ON T1.property_type_code  =  T2.property_type_code WHERE T1.property_type_code  =  'House'"
+    }
+]

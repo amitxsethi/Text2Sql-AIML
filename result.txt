@@ -1,0 +1,9 @@
+======================================================================
+FINAL RESULTS SUMMARY
+======================================================================
+Normalized EM:                    26.1% (case-insensitive)
+Execution Accuracy (EX):          59.4% MAIN METRIC
+
+Generation success rate:          75.2%
+Null/failed generations:          24.8%
+======================================================================
